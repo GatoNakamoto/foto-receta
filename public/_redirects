@@ -1,1 +1,2 @@
-/clarifaiproxy/* https://api.clarifai.com/:splat 200
+/clarifaiproxy/*  https://api.clarifai.com/:splat  200
+/*                /index.html                     200
