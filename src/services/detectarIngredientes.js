@@ -62,10 +62,11 @@ const detectarIngredientes = async (imageData, isBase64 = true) => {
       body: raw
     };
 
-    // Realizar la petición a la API de Clarifai
-    console.log('Enviando petición a:', `https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`);
+    // Realizar la petición a la API de Clarifai a través del proxy
+    // CAMBIO IMPORTANTE: Usamos el proxy para evitar problemas de CORS
+    console.log('Enviando petición al proxy:', `https://clarifaiproxy.onrender.com/v2/models/${MODEL_ID}/outputs`);
     const response = await fetch(
-      `https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`, 
+      `https://clarifaiproxy.onrender.com/v2/models/${MODEL_ID}/outputs`, 
       requestOptions
     );
     
