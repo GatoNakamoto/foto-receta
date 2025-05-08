@@ -235,6 +235,46 @@
       color: #1e40af;
     }
     
+    /* Estrella de favoritos */
+    .favorite-star {
+      margin-left: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    }
+    
+    .favorite-star:hover {
+      transform: scale(1.2);
+    }
+    
+    .favorite-star.active {
+      color: #fbbf24;
+      fill: #fbbf24;
+    }
+    
+    /* Notificación */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 16px;
+      background-color: #ffffff;
+      color: #111827;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.3s, opacity 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 100;
+    }
+    
+    .notification.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
     /* Paginación */
     .pagination {
       display: flex;
@@ -370,6 +410,11 @@
       color: #93c5fd;
     }
     
+    body.dark-mode .notification {
+      background-color: #1f2937;
+      color: #f3f4f6;
+    }
+    
     body.dark-mode .page-info {
       color: #9ca3af;
     }
@@ -419,12 +464,12 @@
         <a href="#" class="logo">AIMarketCap</a>
         
         <div class="nav-items">
-          <button id="dark-mode-toggle" class="button" title="Cambiar tema">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+          <button id="favorites-toggle" class="button" title="Mostrar solo favoritos">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
           </button>
           
-          <button id="favorites-toggle" class="button" title="Favoritos">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <button id="dark-mode-toggle" class="button" title="Cambiar tema">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
           </button>
         </div>
       </div>
@@ -439,6 +484,12 @@
         <input type="text" id="search-input" class="search-input" placeholder="Buscar IAs por nombre...">
       </div>
     </div>
+  </div>
+  
+  <!-- Notificación -->
+  <div id="notification" class="notification">
+    <svg id="notification-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+    <span id="notification-text"></span>
   </div>
   
   <main class="main">
@@ -1694,7 +1745,7 @@
     
     // Script sin dependencias de localStorage
     document.addEventListener('DOMContentLoaded', function() {
-      // Variables para estado temporal (sin persistencia)
+      // Variables para estado temporal
       let isDarkMode = false;
       let showFavorites = false;
       let currentCategory = 'todas';
@@ -1703,15 +1754,30 @@
       let searchTerm = '';
       const itemsPerPage = 10;
       
-      // Intentar usar el sistema preferido del usuario
+      // Intentar cargar favoritos guardados
       try {
-        // Detectar preferencia de tema del sistema
-        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDarkMode) {
-          enableDarkMode();
+        const storedFavorites = localStorage.getItem('aiMarketCapFavorites');
+        if (storedFavorites) {
+          favorites = JSON.parse(storedFavorites);
+        }
+        
+        // Intentar cargar el tema guardado
+        const storedDarkMode = localStorage.getItem('aiMarketCapDarkMode');
+        if (storedDarkMode) {
+          isDarkMode = JSON.parse(storedDarkMode);
+          if (isDarkMode) {
+            enableDarkMode();
+          }
+        } else {
+          // Detectar preferencia del sistema
+          const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (prefersDarkMode) {
+            isDarkMode = true;
+            enableDarkMode();
+          }
         }
       } catch (e) {
-        console.log('No se pudo detectar la preferencia de tema del sistema');
+        console.log('Error al cargar configuración guardada:', e);
       }
       
       // Inicializar la tabla
@@ -1737,12 +1803,20 @@
           } else {
             disableDarkMode();
           }
+          
+          try {
+            localStorage.setItem('aiMarketCapDarkMode', isDarkMode);
+          } catch (e) {
+            console.log('Error al guardar preferencia de tema:', e);
+          }
         });
       }
       
       // Botón favoritos
       const favoritesToggle = document.getElementById('favorites-toggle');
       if (favoritesToggle) {
+        updateFavoritesButton(); // Actualizar el botón al inicio
+        
         favoritesToggle.addEventListener('click', function() {
           showFavorites = !showFavorites;
           updateFavoritesButton();
@@ -1837,6 +1911,74 @@
         });
       }
       
+      // Función para manejar favoritos
+      function toggleFavorite(id) {
+        const index = favorites.indexOf(id);
+        
+        if (index === -1) {
+          // Añadir a favoritos
+          favorites.push(id);
+          showNotification('Añadido a favoritos', 'star-fill');
+        } else {
+          // Quitar de favoritos
+          favorites.splice(index, 1);
+          showNotification('Eliminado de favoritos', 'star');
+        }
+        
+        // Guardar favoritos en localStorage
+        try {
+          localStorage.setItem('aiMarketCapFavorites', JSON.stringify(favorites));
+        } catch (e) {
+          console.log('Error al guardar favoritos:', e);
+        }
+        
+        // Si estamos mostrando solo favoritos, actualizar la tabla
+        if (showFavorites) {
+          updateTable();
+        } else {
+          // Si no, solo actualizamos las estrellas visibles
+          const favoriteStars = document.querySelectorAll('.favorite-star');
+          favoriteStars.forEach(star => {
+            const aiId = parseInt(star.getAttribute('data-id'));
+            if (favorites.includes(aiId)) {
+              star.classList.add('active');
+              star.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+            } else {
+              star.classList.remove('active');
+              star.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+            }
+          });
+        }
+      }
+      
+      // Mostrar notificación
+      function showNotification(message, iconType) {
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notification-text');
+        const notificationIcon = document.getElementById('notification-icon');
+        
+        // Establecer mensaje y tipo de icono
+        notificationText.textContent = message;
+        
+        if (iconType === 'star-fill') {
+          notificationIcon.innerHTML = '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>';
+          notificationIcon.setAttribute('fill', 'currentColor');
+          notificationIcon.style.color = '#f59e0b';
+        } else {
+          notificationIcon.innerHTML = '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>';
+          notificationIcon.setAttribute('fill', 'none');
+          notificationIcon.style.color = 'currentColor';
+        }
+        
+        // Mostrar notificación
+        notification.classList.add('visible');
+        
+        // Ocultar después de 3 segundos
+        setTimeout(() => {
+          notification.classList.remove('visible');
+        }, 3000);
+      }
+      
       // Actualizar la tabla con los datos filtrados
       function updateTable() {
         const filteredIAs = getFilteredIAs();
@@ -1868,13 +2010,24 @@
             // Clase para cambio positivo o negativo
             const changeClass = ai.change >= 0 ? 'up' : 'down';
             
+            // Verificar si es favorito
+            const isFavorite = favorites.includes(ai.id);
+            const starIcon = isFavorite
+              ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'
+              : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+            
             row.innerHTML = `
               <td>${ai.id}</td>
               <td>
                 <div class="ai-info">
                   <img src="${ai.logo}" alt="${ai.name}" class="ai-logo">
                   <div>
-                    <div class="ai-name">${ai.name}</div>
+                    <div class="ai-name">
+                      ${ai.name}
+                      <span class="favorite-star ${isFavorite ? 'active' : ''}" data-id="${ai.id}">
+                        ${starIcon}
+                      </span>
+                    </div>
                     <div class="ai-company">${ai.company}</div>
                   </div>
                 </div>
@@ -1891,6 +2044,16 @@
             `;
             
             tableBody.appendChild(row);
+          });
+          
+          // Añadir eventos a las estrellas de favoritos
+          const favoriteStars = document.querySelectorAll('.favorite-star');
+          favoriteStars.forEach(star => {
+            star.addEventListener('click', function(e) {
+              e.stopPropagation(); // Evitar que el clic se propague a la fila
+              const aiId = parseInt(this.getAttribute('data-id'));
+              toggleFavorite(aiId);
+            });
           });
         }
         
