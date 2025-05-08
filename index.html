@@ -36,6 +36,22 @@
       --radius-lg: 0.75rem;
       --radius-full: 9999px;
       --transition: all 0.2s ease;
+      
+      /* Top 3 colores para modo claro */
+      --top1-bg: #fbf7ef;
+      --top1-border: #eab308;
+      --top1-medal: #ffc107;
+      --top1-text: #7c2d12;
+      
+      --top2-bg: #f6f8fb;
+      --top2-border: #a1a1aa;
+      --top2-medal: #c0c0c0;
+      --top2-text: #1f2937;
+      
+      --top3-bg: #f8f5f1;
+      --top3-border: #b45309;
+      --top3-medal: #cd7f32;
+      --top3-text: #7c2d0c;
     }
     
     /* Variables modo oscuro */
@@ -59,6 +75,22 @@
       --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      
+      /* Top 3 colores para modo oscuro */
+      --top1-bg: #2c2c2c;
+      --top1-border: #eab308;
+      --top1-medal: #ffc107;
+      --top1-text: #000000;
+      
+      --top2-bg: #1a2541;
+      --top2-border: #a1a1aa;
+      --top2-medal: #c0c0c0;
+      --top2-text: #000000;
+      
+      --top3-bg: #2a2520;
+      --top3-border: #b45309;
+      --top3-medal: #cd7f32;
+      --top3-text: #ffffff;
     }
     
     /* Estilos base */
@@ -397,11 +429,11 @@
       width: 260px;
     }
     
-    th:nth-child(3), td:nth-child(3) { /* Visitas */
+    th:nth-child(3), td:nth-child(3) { /* Página */
       width: 100px;
     }
     
-    th:nth-child(4), td:nth-child(4) { /* Cambio */
+    th:nth-child(4), td:nth-child(4) { /* Visitas */
       width: 100px;
     }
     
@@ -432,15 +464,15 @@
       color: white;
     }
     
-    /* MODIFIED TOP 3 STYLING TO MATCH IMAGE */
-    /* Top-1 Gold Medal with Crown */
+    /* Top 1 Gold Medal with Crown */
     .top-1 {
-      background-color: #2c2c2c;
+      background-color: var(--top1-bg);
+      border-left: 3px solid var(--top1-border);
     }
     
     .top-1 .rank {
-      background: #ffc107;
-      color: #000;
+      background: var(--top1-medal);
+      color: var(--top1-text);
       width: 2.5rem;
       height: 2.5rem;
       border: 2px solid #fff;
@@ -457,14 +489,15 @@
       font-size: 1rem;
     }
     
-    /* Top-2 Silver Medal with Star */
+    /* Top 2 Silver Medal with Star */
     .top-2 {
-      background-color: #1a2541;
+      background-color: var(--top2-bg);
+      border-left: 3px solid var(--top2-border);
     }
     
     .top-2 .rank {
-      background: #c0c0c0;
-      color: #000;
+      background: var(--top2-medal);
+      color: var(--top2-text);
       width: 2.5rem;
       height: 2.5rem;
       border: 2px solid #fff;
@@ -481,14 +514,15 @@
       font-size: 0.9rem;
     }
     
-    /* Top-3 Bronze Medal with Ribbon */
+    /* Top 3 Bronze Medal with Ribbon */
     .top-3 {
-      background-color: #2a2520;
+      background-color: var(--top3-bg);
+      border-left: 3px solid var(--top3-border);
     }
     
     .top-3 .rank {
-      background: #cd7f32;
-      color: #fff;
+      background: var(--top3-medal);
+      color: var(--top3-text);
       width: 2.5rem;
       height: 2.5rem;
       border: 2px solid #fff;
@@ -580,26 +614,34 @@
       color: var(--text-tertiary);
     }
     
+    .web-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      background-color: var(--bg-secondary);
+      border-radius: var(--radius-full);
+      color: var(--text-tertiary);
+      transition: var(--transition);
+    }
+    
+    .web-link:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .web-link svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    
     .visit-count {
       font-size: 0.9375rem;
       font-weight: 500;
       color: var(--text-primary);
-    }
-    
-    .change {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    
-    .change.up {
-      color: var(--success);
-    }
-    
-    .change.down {
-      color: var(--danger);
     }
     
     .year {
@@ -979,8 +1021,8 @@
               <tr>
                 <th>#</th>
                 <th>IA</th>
+                <th>Página</th>
                 <th>Visitas</th>
-                <th>Cambio</th>
                 <th>Año</th>
                 <th>Valoración</th>
                 <th>Capacidades</th>
@@ -1018,7 +1060,8 @@
         rating: 9.8,
         year: 2022,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://chat.openai.com"
       },
       {
         id: 2,
@@ -1030,7 +1073,8 @@
         rating: 9.7,
         year: 2023,
         capabilities: ["Texto", "Razonamiento", "Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://claude.ai"
       },
       {
         id: 3,
@@ -1042,7 +1086,8 @@
         rating: 9.6,
         year: 2023,
         capabilities: ["Texto", "Imagen", "Audio", "Video", "Código", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://gemini.google.com"
       },
       {
         id: 4,
@@ -1054,7 +1099,8 @@
         rating: 9.2,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://perplexity.ai"
       },
       {
         id: 5,
@@ -1066,7 +1112,8 @@
         rating: 9.0,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://poe.com"
       },
       {
         id: 6,
@@ -1078,7 +1125,8 @@
         rating: 8.9,
         year: 2022,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://character.ai"
       },
       {
         id: 7,
@@ -1090,7 +1138,8 @@
         rating: 9.0,
         year: 2023,
         capabilities: ["Texto", "Código", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://copilot.microsoft.com"
       },
       {
         id: 8,
@@ -1102,7 +1151,8 @@
         rating: 8.9,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://meta.ai"
       },
       {
         id: 9,
@@ -1114,7 +1164,8 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://amazon.com/olympus"
       },
       {
         id: 10,
@@ -1126,7 +1177,8 @@
         rating: 8.7,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://yandex.ru/gpt"
       },
       {
         id: 11,
@@ -1138,7 +1190,8 @@
         rating: 9.0,
         year: 2019,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://grammarly.com"
       },
       {
         id: 12,
@@ -1150,7 +1203,8 @@
         rating: 8.5,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://quillbot.com"
       },
       {
         id: 13,
@@ -1162,7 +1216,8 @@
         rating: 9.2,
         year: 2017,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://deepl.com"
       },
       {
         id: 14,
@@ -1174,7 +1229,8 @@
         rating: 8.4,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://wordtune.com"
       },
       {
         id: 15,
@@ -1186,7 +1242,8 @@
         rating: 8.6,
         year: 2021,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://sudowrite.com"
       },
       {
         id: 16,
@@ -1198,7 +1255,8 @@
         rating: 8.3,
         year: 2021,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://rytr.me"
       },
       {
         id: 17,
@@ -1210,7 +1268,8 @@
         rating: 8.6,
         year: 2014,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://textio.com"
       },
       {
         id: 18,
@@ -1222,7 +1281,8 @@
         rating: 9.1,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://notion.so/ai"
       },
       {
         id: 19,
@@ -1234,7 +1294,8 @@
         rating: 8.2,
         year: 2015,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://sanebox.com"
       },
       {
         id: 20,
@@ -1246,7 +1307,8 @@
         rating: 8.4,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://shortwave.com"
       },
       {
         id: 21,
@@ -1258,7 +1320,8 @@
         rating: 9.5,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://midjourney.com"
       },
       {
         id: 22,
@@ -1270,7 +1333,8 @@
         rating: 9.4,
         year: 2023,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://openai.com/dall-e-3"
       },
       {
         id: 23,
@@ -1282,7 +1346,8 @@
         rating: 9.0,
         year: 2018,
         capabilities: ["Imagen", "Video"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://runwayml.com"
       },
       {
         id: 24,
@@ -1294,7 +1359,8 @@
         rating: 8.8,
         year: 2021,
         capabilities: ["Video", "Audio", "Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://synthesia.io"
       },
       {
         id: 25,
@@ -1306,7 +1372,8 @@
         rating: 9.2,
         year: 2024,
         capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://lumiere.google.com"
       },
       {
         id: 26,
@@ -1318,7 +1385,8 @@
         rating: 8.7,
         year: 2023,
         capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://opusclip.ai"
       },
       {
         id: 27,
@@ -1330,7 +1398,8 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://filmora.wondershare.com/ai"
       },
       {
         id: 28,
@@ -1342,7 +1411,8 @@
         rating: 8.6,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://upscayl.org"
       },
       {
         id: 29,
@@ -1354,7 +1424,8 @@
         rating: 8.3,
         year: 2015,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://deepdreamgenerator.com"
       },
       {
         id: 30,
@@ -1366,7 +1437,8 @@
         rating: 8.4,
         year: 2018,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://artbreeder.com"
       },
       {
         id: 31,
@@ -1378,7 +1450,8 @@
         rating: 9.1,
         year: 2023,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://elevenlabs.io"
       },
       {
         id: 32,
@@ -1390,7 +1463,8 @@
         rating: 8.7,
         year: 2021,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://murf.ai"
       },
       {
         id: 33,
@@ -1402,7 +1476,8 @@
         rating: 9.0,
         year: 2023,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://suno.ai"
       },
       {
         id: 34,
@@ -1414,7 +1489,8 @@
         rating: 8.5,
         year: 2022,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://udio.ai"
       },
       {
         id: 35,
@@ -1426,7 +1502,8 @@
         rating: 8.8,
         year: 2017,
         capabilities: ["Audio", "Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://assemblyai.com"
       },
       {
         id: 36,
@@ -1438,7 +1515,8 @@
         rating: 8.9,
         year: 2017,
         capabilities: ["Audio", "Video", "Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://descript.com"
       },
       {
         id: 37,
@@ -1450,7 +1528,8 @@
         rating: 8.6,
         year: 2014,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://voicemod.net"
       },
       {
         id: 38,
@@ -1462,7 +1541,8 @@
         rating: 8.7,
         year: 2019,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://resemble.ai"
       },
       {
         id: 39,
@@ -1474,7 +1554,8 @@
         rating: 8.4,
         year: 2021,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://cleanvoice.ai"
       },
       {
         id: 40,
@@ -1486,7 +1567,8 @@
         rating: 8.3,
         year: 2020,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://vocalremover.org"
       },
       {
         id: 41,
@@ -1498,7 +1580,8 @@
         rating: 9.2,
         year: 2011,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://zapier.com"
       },
       {
         id: 42,
@@ -1510,7 +1593,8 @@
         rating: 8.9,
         year: 2017,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://clickup.com"
       },
       {
         id: 43,
@@ -1522,7 +1606,8 @@
         rating: 9.0,
         year: 2008,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://asana.com"
       },
       {
         id: 44,
@@ -1534,7 +1619,8 @@
         rating: 8.8,
         year: 2019,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://reclaim.ai"
       },
       {
         id: 45,
@@ -1546,7 +1632,8 @@
         rating: 8.7,
         year: 2018,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://clockwise.ai"
       },
       {
         id: 46,
@@ -1558,7 +1645,8 @@
         rating: 8.6,
         year: 2020,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://usemotion.com"
       },
       {
         id: 47,
@@ -1570,7 +1658,8 @@
         rating: 8.8,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://hubspot.com/email-writer"
       },
       {
         id: 48,
@@ -1582,7 +1671,8 @@
         rating: 8.9,
         year: 2022,
         capabilities: ["Texto", "Audio", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://fathom.video"
       },
       {
         id: 49,
@@ -1594,7 +1684,8 @@
         rating: 9.0,
         year: 2019,
         capabilities: ["Audio", "Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://fireflies.ai"
       },
       {
         id: 50,
@@ -1606,7 +1697,8 @@
         rating: 8.5,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://nyota.ai"
       },
       {
         id: 51,
@@ -1618,7 +1710,8 @@
         rating: 9.1,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://cursor.sh"
       },
       {
         id: 52,
@@ -1630,7 +1723,8 @@
         rating: 9.0,
         year: 2012,
         capabilities: ["Código", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://bubble.io"
       },
       {
         id: 53,
@@ -1642,7 +1736,8 @@
         rating: 8.7,
         year: 2022,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://bolt.ai"
       },
       {
         id: 54,
@@ -1654,7 +1749,8 @@
         rating: 8.4,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://lovable.ai"
       },
       {
         id: 55,
@@ -1666,7 +1762,8 @@
         rating: 9.2,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://v0.dev"
       },
       {
         id: 56,
@@ -1678,7 +1775,8 @@
         rating: 9.3,
         year: 2022,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://github.com/features/copilot"
       },
       {
         id: 57,
@@ -1690,7 +1788,8 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://aws.amazon.com/codewhisperer"
       },
       {
         id: 58,
@@ -1702,7 +1801,8 @@
         rating: 8.9,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://replit.com/ghostwriter"
       },
       {
         id: 59,
@@ -1714,7 +1814,8 @@
         rating: 8.6,
         year: 2018,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://tabnine.com"
       },
       {
         id: 60,
@@ -1726,7 +1827,8 @@
         rating: 7.8,
         year: 2015,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://kite.com"
       },
       {
         id: 61,
@@ -1738,7 +1840,8 @@
         rating: 9.4,
         year: 2013,
         capabilities: ["Imagen", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://canva.com"
       },
       {
         id: 62,
@@ -1750,7 +1853,8 @@
         rating: 8.7,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://copy.ai"
       },
       {
         id: 63,
@@ -1762,7 +1866,8 @@
         rating: 8.9,
         year: 2021,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://jasper.ai"
       },
       {
         id: 64,
@@ -1774,7 +1879,8 @@
         rating: 8.6,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://writesonic.com"
       },
       {
         id: 65,
@@ -1786,7 +1892,8 @@
         rating: 8.3,
         year: 2018,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://getliner.com"
       },
       {
         id: 66,
@@ -1798,7 +1905,8 @@
         rating: 8.5,
         year: 2023,
         capabilities: ["Video", "Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://eightify.app"
       },
       {
         id: 67,
@@ -1810,7 +1918,8 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://phind.com"
       },
       {
         id: 68,
@@ -1822,7 +1931,8 @@
         rating: 8.4,
         year: 2022,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://maxai.me"
       },
       {
         id: 69,
@@ -1834,7 +1944,8 @@
         rating: 8.7,
         year: 2022,
         capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://blackbox.ai"
       },
       {
         id: 70,
@@ -1846,7 +1957,8 @@
         rating: 9.0,
         year: 2018,
         capabilities: ["Audio", "Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://otter.ai"
       },
       {
         id: 71,
@@ -1858,7 +1970,8 @@
         rating: 8.9,
         year: 2023,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://chatpdf.com"
       },
       {
         id: 72,
@@ -1870,7 +1983,8 @@
         rating: 8.6,
         year: 2020,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://cutout.pro"
       },
       {
         id: 73,
@@ -1882,7 +1996,8 @@
         rating: 8.4,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://craiyon.com"
       },
       {
         id: 74,
@@ -1894,7 +2009,8 @@
         rating: 8.3,
         year: 2021,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://hotpot.ai"
       },
       {
         id: 75,
@@ -1906,7 +2022,8 @@
         rating: 9.1,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://leonardo.ai"
       },
       {
         id: 76,
@@ -1918,7 +2035,8 @@
         rating: 8.7,
         year: 2018,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://deepai.org"
       },
       {
         id: 77,
@@ -1930,7 +2048,8 @@
         rating: 9.0,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://tome.app"
       },
       {
         id: 78,
@@ -1942,7 +2061,8 @@
         rating: 9.2,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://stablediffusionweb.com"
       },
       {
         id: 79,
@@ -1954,7 +2074,8 @@
         rating: 8.8,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://gamma.app"
       },
       {
         id: 80,
@@ -1966,7 +2087,8 @@
         rating: 8.5,
         year: 2023,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://presentations.ai"
       },
       {
         id: 81,
@@ -1978,7 +2100,8 @@
         rating: 8.4,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://tealhq.com"
       },
       {
         id: 82,
@@ -1990,7 +2113,8 @@
         rating: 8.2,
         year: 2015,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://kickresume.com"
       },
       {
         id: 83,
@@ -2002,7 +2126,8 @@
         rating: 8.7,
         year: 2021,
         capabilities: ["Imagen", "Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://adcreative.ai"
       },
       {
         id: 84,
@@ -2014,7 +2139,8 @@
         rating: 8.5,
         year: 2020,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://clay.com"
       },
       {
         id: 85,
@@ -2026,7 +2152,8 @@
         rating: 8.4,
         year: 2011,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://hiverhq.com"
       },
       {
         id: 86,
@@ -2038,7 +2165,8 @@
         rating: 8.6,
         year: 2018,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://tidio.com/ai"
       },
       {
         id: 87,
@@ -2050,7 +2178,8 @@
         rating: 8.1,
         year: 2019,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://cvviz.com"
       },
       {
         id: 88,
@@ -2062,7 +2191,8 @@
         rating: 8.5,
         year: 2015,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://getguru.com"
       },
       {
         id: 89,
@@ -2074,7 +2204,8 @@
         rating: 8.3,
         year: 2021,
         capabilities: ["Audio", "Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://sembly.ai"
       },
       {
         id: 90,
@@ -2086,7 +2217,8 @@
         rating: 8.0,
         year: 2014,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://claralabs.com"
       },
       {
         id: 91,
@@ -2098,7 +2230,8 @@
         rating: 8.6,
         year: 2019,
         capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://rephrase.ai"
       },
       {
         id: 92,
@@ -2110,7 +2243,8 @@
         rating: 8.7,
         year: 2021,
         capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://pictory.ai"
       },
       {
         id: 93,
@@ -2122,7 +2256,8 @@
         rating: 8.3,
         year: 2020,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://lovo.ai"
       },
       {
         id: 94,
@@ -2134,7 +2269,8 @@
         rating: 8.2,
         year: 2019,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://wellsaidlabs.com"
       },
       {
         id: 95,
@@ -2146,7 +2282,8 @@
         rating: 8.1,
         year: 2021,
         capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://boomy.com"
       },
       {
         id: 96,
@@ -2158,7 +2295,8 @@
         rating: 8.4,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://stockimg.ai"
       },
       {
         id: 97,
@@ -2170,7 +2308,8 @@
         rating: 7.9,
         year: 2017,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "http://colormind.io"
       },
       {
         id: 98,
@@ -2182,7 +2321,8 @@
         rating: 8.8,
         year: 2020,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://photoroom.com"
       },
       {
         id: 99,
@@ -2194,7 +2334,8 @@
         rating: 8.5,
         year: 2017,
         capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://faceapp.com"
       },
       {
         id: 100,
@@ -2206,7 +2347,8 @@
         rating: 9.5,
         year: 2024,
         capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://openai.com/sora"
       },
       {
         id: 101,
@@ -2218,7 +2360,8 @@
         rating: 8.4,
         year: 2019,
         capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "https://via.placeholder.com/40",
+        website: "https://n8n.io"
       }
     ];
     
@@ -2459,12 +2602,6 @@
               row.classList.add('top-' + ai.id);
             }
             
-            // Clase para cambio positivo o negativo
-            const changeClass = ai.change >= 0 ? 'up' : 'down';
-            const changeIcon = ai.change >= 0 
-              ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>'
-              : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
-            
             // Verificar si es favorito
             const isFavorite = favorites.includes(ai.id);
             const starIcon = isFavorite
@@ -2473,6 +2610,15 @@
             
             // Calcular el número real en la lista
             const aiRank = indexOfFirstItem + index + 1;
+            
+            // Icono de enlace web
+            const webLinkIcon = `<a href="${ai.website}" target="_blank" class="web-link" title="Visitar web">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>`;
             
             row.innerHTML = `
               <td>
@@ -2491,13 +2637,10 @@
                 </div>
               </td>
               <td>
-                <div class="visit-count">${ai.visits}</div>
+                ${webLinkIcon}
               </td>
               <td>
-                <div class="change ${changeClass}">
-                  ${changeIcon}
-                  ${Math.abs(ai.change).toFixed(1)}%
-                </div>
+                <div class="visit-count">${ai.visits}</div>
               </td>
               <td>
                 <div class="year">${ai.year}</div>
