@@ -77,44 +77,43 @@
       height: 20px;
     }
     
-    /* Barra de estadísticas */
-    .stats-bar {
-      background-color: #111827;
-      color: #ffffff;
-      padding: 12px 0;
+    /* Barra de búsqueda */
+    .search-bar {
+      padding: 16px 0;
+      background-color: #f9fafb;
+      border-bottom: 1px solid #e5e7eb;
     }
     
-    .stats-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
     }
     
-    .stats-left, .stats-right {
-      display: flex;
-      gap: 16px;
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 48px;
+      border-radius: 9999px;
+      border: 1px solid #e5e7eb;
+      font-size: 16px;
+      background-color: #ffffff;
+      transition: all 0.2s;
     }
     
-    .up {
-      color: #34d399;
+    .search-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
     }
     
-    .up:before {
-      content: "↑";
-      display: inline-block;
-      margin-right: 4px;
-    }
-    
-    .down {
-      color: #f87171;
-    }
-    
-    .down:before {
-      content: "↓";
-      display: inline-block;
-      margin-right: 4px;
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: #9ca3af;
     }
     
     /* Área principal */
@@ -305,10 +304,23 @@
       background-color: #374151;
     }
     
-    body.dark-mode .stats-bar {
-      background-color: #111827;
-      border-top: 1px solid #374151;
+    body.dark-mode .search-bar {
+      background-color: #1f2937;
       border-bottom: 1px solid #374151;
+    }
+    
+    body.dark-mode .search-input {
+      background-color: #374151;
+      border-color: #4b5563;
+      color: #f3f4f6;
+    }
+    
+    body.dark-mode .search-input::placeholder {
+      color: #9ca3af;
+    }
+    
+    body.dark-mode .search-icon {
+      color: #9ca3af;
     }
     
     body.dark-mode .filter-button.active {
@@ -419,17 +431,12 @@
     </div>
   </header>
   
-  <div class="stats-bar">
+  <!-- Nueva barra de búsqueda -->
+  <div class="search-bar">
     <div class="container">
-      <div class="stats-container">
-        <div class="stats-left">
-          <span>IAs: 100</span>
-          <span>Categorías: 7</span>
-        </div>
-        <div class="stats-right">
-          <span class="up">Gemini (+18.7%)</span>
-          <span class="down">Kite (-3.2%)</span>
-        </div>
+      <div class="search-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Buscar IAs por nombre...">
       </div>
     </div>
   </div>
@@ -1693,6 +1700,7 @@
       let currentCategory = 'todas';
       let currentPage = 1;
       let favorites = [];
+      let searchTerm = '';
       const itemsPerPage = 10;
       
       // Intentar usar el sistema preferido del usuario
@@ -1708,6 +1716,16 @@
       
       // Inicializar la tabla
       updateTable();
+      
+      // Manejar la búsqueda
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          searchTerm = this.value;
+          currentPage = 1;
+          updateTable();
+        });
+      }
       
       // Botón modo oscuro
       const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -1791,17 +1809,31 @@
         });
       }
       
-      // Función para filtrar IAs por categoría
+      // Función para filtrar IAs
       function getFilteredIAs() {
         return allIAs.filter(ai => {
-          // Filtrar por categoría
-          const matchesCategory = currentCategory === 'todas' || 
-                                ai.capabilities.map(c => c.toLowerCase()).includes(currentCategory.toLowerCase());
+          // Filtrar por búsqueda
+          const matchesSearch = searchTerm === '' || 
+                               ai.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                               ai.company.toLowerCase().includes(searchTerm.toLowerCase());
           
-          // Filtrar por favoritos (no implementado completamente en esta versión)
+          // Filtrar por categoría
+          let matchesCategory = true;
+          if (currentCategory !== 'todas') {
+            // Convertimos Automatización a automatizacion para comparar
+            const normalizedCapabilities = ai.capabilities.map(c => {
+              if (c === 'Automatización') return 'automatizacion';
+              if (c === 'Código') return 'codigo';
+              return c.toLowerCase();
+            });
+            
+            matchesCategory = normalizedCapabilities.includes(currentCategory.toLowerCase());
+          }
+          
+          // Filtrar por favoritos
           const matchesFavorites = !showFavorites || favorites.includes(ai.id);
           
-          return matchesCategory && matchesFavorites;
+          return matchesSearch && matchesCategory && matchesFavorites;
         });
       }
       
@@ -1818,37 +1850,49 @@
         // Limpiar la tabla
         tableBody.innerHTML = '';
         
-        // Generar filas de la tabla
-        currentIAs.forEach(ai => {
-          const row = document.createElement('tr');
-          
-          // Clase para cambio positivo o negativo
-          const changeClass = ai.change >= 0 ? 'up' : 'down';
-          
-          row.innerHTML = `
-            <td>${ai.id}</td>
-            <td>
-              <div class="ai-info">
-                <img src="${ai.logo}" alt="${ai.name}" class="ai-logo">
-                <div>
-                  <div class="ai-name">${ai.name}</div>
-                  <div class="ai-company">${ai.company}</div>
-                </div>
-              </div>
-            </td>
-            <td>${ai.visits}</td>
-            <td class="${changeClass}">${Math.abs(ai.change).toFixed(1)}%</td>
-            <td class="hide-mobile">${ai.launch}</td>
-            <td>${ai.rating}</td>
-            <td>
-              <div class="badge-container">
-                ${ai.capabilities.map(cap => `<span class="badge">${cap}</span>`).join('')}
-              </div>
+        // Mostrar mensaje si no hay resultados
+        if (currentIAs.length === 0) {
+          const emptyRow = document.createElement('tr');
+          emptyRow.innerHTML = `
+            <td colspan="7" class="px-6 py-10 text-center">
+              <div class="text-lg font-medium">No se encontraron resultados</div>
+              <div class="text-sm mt-2">Intenta con otra búsqueda o categoría</div>
             </td>
           `;
-          
-          tableBody.appendChild(row);
-        });
+          tableBody.appendChild(emptyRow);
+        } else {
+          // Generar filas de la tabla
+          currentIAs.forEach(ai => {
+            const row = document.createElement('tr');
+            
+            // Clase para cambio positivo o negativo
+            const changeClass = ai.change >= 0 ? 'up' : 'down';
+            
+            row.innerHTML = `
+              <td>${ai.id}</td>
+              <td>
+                <div class="ai-info">
+                  <img src="${ai.logo}" alt="${ai.name}" class="ai-logo">
+                  <div>
+                    <div class="ai-name">${ai.name}</div>
+                    <div class="ai-company">${ai.company}</div>
+                  </div>
+                </div>
+              </td>
+              <td>${ai.visits}</td>
+              <td class="${changeClass}">${Math.abs(ai.change).toFixed(1)}%</td>
+              <td class="hide-mobile">${ai.launch}</td>
+              <td>${ai.rating}</td>
+              <td>
+                <div class="badge-container">
+                  ${ai.capabilities.map(cap => `<span class="badge">${cap}</span>`).join('')}
+                </div>
+              </td>
+            `;
+            
+            tableBody.appendChild(row);
+          });
+        }
         
         // Actualizar información de paginación
         updatePagination(filteredIAs.length);
@@ -1862,12 +1906,15 @@
         
         // Actualizar información de página
         pageInfo.innerHTML = `
-          Mostrando <strong>${Math.min(totalItems, (currentPage - 1) * itemsPerPage + 1)}</strong> a 
+          Mostrando <strong>${totalItems === 0 ? 0 : Math.min(totalItems, (currentPage - 1) * itemsPerPage + 1)}</strong> a 
           <strong>${Math.min(totalItems, currentPage * itemsPerPage)}</strong> de <strong>${totalItems}</strong> IAs
         `;
         
         // Limpiar contenedor de paginación
         paginationContainer.innerHTML = '';
+        
+        // No mostrar paginación si no hay resultados
+        if (totalItems === 0) return;
         
         // Crear botones de paginación
         // Botón anterior
