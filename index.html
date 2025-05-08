@@ -414,7 +414,7 @@
     tr {
       position: relative;
       transition: var(--transition);
-      height: 4.5rem; /* Altura fija para todas las filas */
+      height: 4.25rem; /* Altura fija para todas las filas - un poco más compacta */
     }
     
     tr:hover {
@@ -699,6 +699,7 @@
       flex-wrap: wrap;
       gap: 0.375rem;
       min-height: 1.875rem; /* Altura mínima para la consistencia */
+      align-items: center;
     }
     
     .badge {
@@ -709,22 +710,23 @@
       background-color: var(--bg-accent);
       color: var(--primary-dark);
       transition: var(--transition);
+      white-space: nowrap;
     }
     
     .badge-more {
       font-size: 0.75rem;
-      font-weight: 500;
+      font-weight: 600;
       padding: 0.25rem 0.5rem;
       border-radius: var(--radius-full);
-      background-color: var(--bg-tertiary);
-      color: var(--text-tertiary);
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
       cursor: pointer;
       transition: var(--transition);
     }
     
     .badge-more:hover {
-      background-color: var(--primary-light);
-      color: var(--primary-dark);
+      background-color: var(--primary);
+      color: white;
     }
     
     tr:hover .badge {
@@ -2651,23 +2653,23 @@
               </svg>
             </a>`;
             
-            // Crear HTML para las capacidades con límite
+            // Crear HTML para las capacidades con límite uniforme
             let capabilitiesHTML = '';
-            const maxVisibleCapabilities = 3;
+            const maxVisibleCapabilities = 2; // Mostrar solo 2 capacidades por defecto
             
             if (ai.capabilities.length <= maxVisibleCapabilities) {
-              // Si hay 3 o menos capacidades, mostrarlas todas
+              // Si hay 2 o menos capacidades, mostrarlas todas
               capabilitiesHTML = ai.capabilities.map(cap => `<span class="badge">${cap}</span>`).join('');
             } else {
-              // Si hay más de 3 capacidades, mostrar 3 y agregar un "+X más"
+              // Si hay más de 2 capacidades, mostrar 2 y agregar un "+X"
               const visibleCapabilities = ai.capabilities.slice(0, maxVisibleCapabilities);
               const hiddenCapabilities = ai.capabilities.slice(maxVisibleCapabilities);
               
               const visibleHTML = visibleCapabilities.map(cap => `<span class="badge">${cap}</span>`).join('');
               const hiddenHTML = hiddenCapabilities.map(cap => `<span class="badge badge-hidden">${cap}</span>`).join('');
-              const moreButton = `<span class="badge-more" data-ai-id="${ai.id}">+${hiddenCapabilities.length} más</span>`;
+              const moreButton = `<span class="badge-more" data-ai-id="${ai.id}">+${hiddenCapabilities.length}</span>`;
               
-              capabilitiesHTML = visibleHTML + hiddenHTML + moreButton;
+              capabilitiesHTML = visibleHTML + moreButton + hiddenHTML;
             }
             
             row.innerHTML = `
@@ -2736,10 +2738,12 @@
               
               // Cambiar el texto del botón
               if (container.classList.contains('capabilities-expanded')) {
-                this.textContent = 'Mostrar menos';
+                this.textContent = 'Menos';
+                this.style.order = '999'; // Mover el botón al final cuando está expandido
               } else {
                 const hiddenBadges = container.querySelectorAll('.badge-hidden').length;
-                this.textContent = `+${hiddenBadges} más`;
+                this.textContent = `+${hiddenBadges}`;
+                this.style.order = ''; // Restaurar el orden original
               }
             });
           });
