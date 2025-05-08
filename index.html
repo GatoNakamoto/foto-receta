@@ -378,6 +378,10 @@
       background-color: #374151;
     }
     
+    .hidden {
+      display: none;
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
       .stats-container {
@@ -423,7 +427,7 @@
           <span>Categorías: 7</span>
         </div>
         <div class="stats-right">
-          <span class="up">DeepSeek (+2026%)</span>
+          <span class="up">Gemini (+18.7%)</span>
           <span class="down">Kite (-3.2%)</span>
         </div>
       </div>
@@ -457,260 +461,1230 @@
                 <th>Capacidades</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="ChatGPT" class="ai-logo">
-                    <div>
-                      <div class="ai-name">ChatGPT</div>
-                      <div class="ai-company">OpenAI</div>
-                    </div>
-                  </div>
-                </td>
-                <td>982.5M</td>
-                <td class="up">12.4%</td>
-                <td class="hide-mobile">30 Nov 2022</td>
-                <td>9.8</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Texto</span>
-                    <span class="badge">Código</span>
-                    <span class="badge">Razonamiento</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>2</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="Gemini" class="ai-logo">
-                    <div>
-                      <div class="ai-name">Gemini</div>
-                      <div class="ai-company">Google</div>
-                    </div>
-                  </div>
-                </td>
-                <td>750M</td>
-                <td class="up">18.7%</td>
-                <td class="hide-mobile">6 Dec 2023</td>
-                <td>9.6</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Texto</span>
-                    <span class="badge">Código</span>
-                    <span class="badge">Imagen</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>3</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="Claude" class="ai-logo">
-                    <div>
-                      <div class="ai-name">Claude</div>
-                      <div class="ai-company">Anthropic</div>
-                    </div>
-                  </div>
-                </td>
-                <td>620M</td>
-                <td class="up">25.3%</td>
-                <td class="hide-mobile">15 Mar 2023</td>
-                <td>9.7</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Texto</span>
-                    <span class="badge">Código</span>
-                    <span class="badge">Razonamiento</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>4</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="Perplexity AI" class="ai-logo">
-                    <div>
-                      <div class="ai-name">Perplexity AI</div>
-                      <div class="ai-company">Perplexity</div>
-                    </div>
-                  </div>
-                </td>
-                <td>450M</td>
-                <td class="up">32.1%</td>
-                <td class="hide-mobile">20 Aug 2023</td>
-                <td>9.2</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Texto</span>
-                    <span class="badge">Razonamiento</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>5</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="Microsoft Copilot" class="ai-logo">
-                    <div>
-                      <div class="ai-name">Microsoft Copilot</div>
-                      <div class="ai-company">Microsoft</div>
-                    </div>
-                  </div>
-                </td>
-                <td>430M</td>
-                <td class="up">15.8%</td>
-                <td class="hide-mobile">21 Sep 2023</td>
-                <td>9.0</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Texto</span>
-                    <span class="badge">Imagen</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>6</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="Midjourney" class="ai-logo">
-                    <div>
-                      <div class="ai-name">Midjourney</div>
-                      <div class="ai-company">Midjourney, Inc.</div>
-                    </div>
-                  </div>
-                </td>
-                <td>410M</td>
-                <td class="down">2.1%</td>
-                <td class="hide-mobile">12 Jul 2022</td>
-                <td>9.5</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Imagen</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>7</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="DALL-E 3" class="ai-logo">
-                    <div>
-                      <div class="ai-name">DALL-E 3</div>
-                      <div class="ai-company">OpenAI</div>
-                    </div>
-                  </div>
-                </td>
-                <td>380M</td>
-                <td class="up">5.6%</td>
-                <td class="hide-mobile">28 Sep 2023</td>
-                <td>9.4</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Imagen</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>8</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="GitHub Copilot" class="ai-logo">
-                    <div>
-                      <div class="ai-name">GitHub Copilot</div>
-                      <div class="ai-company">GitHub/Microsoft</div>
-                    </div>
-                  </div>
-                </td>
-                <td>320M</td>
-                <td class="up">8.9%</td>
-                <td class="hide-mobile">29 Jun 2022</td>
-                <td>9.3</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Código</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>9</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="Meta AI (LLaMA)" class="ai-logo">
-                    <div>
-                      <div class="ai-name">Meta AI (LLaMA)</div>
-                      <div class="ai-company">Meta</div>
-                    </div>
-                  </div>
-                </td>
-                <td>310M</td>
-                <td class="down">1.4%</td>
-                <td class="hide-mobile">24 Feb 2023</td>
-                <td>8.9</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Texto</span>
-                    <span class="badge">Código</span>
-                    <span class="badge">Razonamiento</span>
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td>10</td>
-                <td>
-                  <div class="ai-info">
-                    <img src="https://via.placeholder.com/40" alt="ElevenLabs" class="ai-logo">
-                    <div>
-                      <div class="ai-name">ElevenLabs</div>
-                      <div class="ai-company">ElevenLabs, Inc.</div>
-                    </div>
-                  </div>
-                </td>
-                <td>290M</td>
-                <td class="up">22.8%</td>
-                <td class="hide-mobile">1 Mar 2023</td>
-                <td>9.1</td>
-                <td>
-                  <div class="badge-container">
-                    <span class="badge">Audio</span>
-                  </div>
-                </td>
-              </tr>
+            <tbody id="ai-table-body">
+              <!-- Las filas se generarán dinámicamente desde JavaScript -->
             </tbody>
           </table>
         </div>
       </div>
       
       <div class="pagination">
-        <div class="page-info">
-          Mostrando <strong>1</strong> a <strong>10</strong> de <strong>100</strong> IAs
+        <div class="page-info" id="page-info">
+          Cargando...
         </div>
         
-        <div class="page-buttons">
-          <button class="page-button" disabled>←</button>
-          <button class="page-button active">1</button>
-          <button class="page-button">2</button>
-          <button class="page-button">3</button>
-          <button class="page-button">4</button>
-          <button class="page-button">5</button>
-          <button class="page-button">→</button>
+        <div class="page-buttons" id="pagination-container">
+          <!-- Los botones de paginación se generarán dinámicamente -->
         </div>
       </div>
     </div>
   </main>
   
   <script>
+    // Datos de las IAs
+    const allIAs = [
+      {
+        id: 1,
+        name: "ChatGPT",
+        company: "OpenAI",
+        visits: "982.5M",
+        change: 12.4,
+        launch: "30 Nov 2022",
+        rating: 9.8,
+        year: 2022,
+        capabilities: ["Texto", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 2,
+        name: "Claude",
+        company: "Anthropic",
+        visits: "720M",
+        change: 25.3,
+        launch: "15 Mar 2023",
+        rating: 9.7,
+        year: 2023,
+        capabilities: ["Texto", "Razonamiento", "Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 3,
+        name: "Gemini",
+        company: "Google",
+        visits: "750M",
+        change: 18.7,
+        launch: "6 Dec 2023",
+        rating: 9.6,
+        year: 2023,
+        capabilities: ["Texto", "Imagen", "Audio", "Video", "Código", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 4,
+        name: "Perplexity AI",
+        company: "Perplexity",
+        visits: "450M",
+        change: 32.1,
+        launch: "20 Aug 2023",
+        rating: 9.2,
+        year: 2023,
+        capabilities: ["Texto", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 5,
+        name: "Poe",
+        company: "Quora",
+        visits: "320M",
+        change: 15.8,
+        launch: "21 Sep 2023",
+        rating: 9.0,
+        year: 2023,
+        capabilities: ["Texto", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 6,
+        name: "Character.ai",
+        company: "Character.ai",
+        visits: "380M",
+        change: 20.5,
+        launch: "12 Jul 2022",
+        rating: 8.9,
+        year: 2022,
+        capabilities: ["Texto", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 7,
+        name: "Microsoft Copilot",
+        company: "Microsoft",
+        visits: "430M",
+        change: 15.8,
+        launch: "21 Sep 2023",
+        rating: 9.0,
+        year: 2023,
+        capabilities: ["Texto", "Código", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 8,
+        name: "Meta AI (LLaMA)",
+        company: "Meta",
+        visits: "310M",
+        change: -1.4,
+        launch: "24 Feb 2023",
+        rating: 8.9,
+        year: 2023,
+        capabilities: ["Texto", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 9,
+        name: "Amazon Olympus",
+        company: "Amazon",
+        visits: "280M",
+        change: 14.7,
+        launch: "8 Apr 2023",
+        rating: 8.8,
+        year: 2023,
+        capabilities: ["Texto", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 10,
+        name: "YandexGPT",
+        company: "Yandex",
+        visits: "210M",
+        change: 18.3,
+        launch: "15 May 2023",
+        rating: 8.7,
+        year: 2023,
+        capabilities: ["Texto", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 11,
+        name: "Grammarly",
+        company: "Grammarly, Inc.",
+        visits: "350M",
+        change: 8.4,
+        launch: "2 Jul 2019",
+        rating: 9.0,
+        year: 2019,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 12,
+        name: "QuillBot",
+        company: "QuillBot",
+        visits: "190M",
+        change: 10.2,
+        launch: "12 Aug 2020",
+        rating: 8.5,
+        year: 2020,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 13,
+        name: "DeepL",
+        company: "DeepL GmbH",
+        visits: "220M",
+        change: 7.5,
+        launch: "28 Aug 2017",
+        rating: 9.2,
+        year: 2017,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 14,
+        name: "Wordtune",
+        company: "AI21 Labs",
+        visits: "120M",
+        change: 12.1,
+        launch: "5 Oct 2020",
+        rating: 8.4,
+        year: 2020,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 15,
+        name: "Sudowrite",
+        company: "Sudowrite",
+        visits: "85M",
+        change: 18.9,
+        launch: "15 Nov 2021",
+        rating: 8.6,
+        year: 2021,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 16,
+        name: "Rytr",
+        company: "Rytr",
+        visits: "95M",
+        change: 15.7,
+        launch: "11 Jan 2021",
+        rating: 8.3,
+        year: 2021,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 17,
+        name: "Textio",
+        company: "Textio",
+        visits: "75M",
+        change: 7.8,
+        launch: "3 Mar 2014",
+        rating: 8.6,
+        year: 2014,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 18,
+        name: "Notion AI",
+        company: "Notion",
+        visits: "240M",
+        change: 28.6,
+        launch: "22 Nov 2022",
+        rating: 9.1,
+        year: 2022,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 19,
+        name: "SaneBox",
+        company: "SaneBox",
+        visits: "65M",
+        change: 5.4,
+        launch: "8 Jun 2015",
+        rating: 8.2,
+        year: 2015,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 20,
+        name: "Shortwave",
+        company: "Shortwave",
+        visits: "45M",
+        change: 10.5,
+        launch: "15 Apr 2022",
+        rating: 8.4,
+        year: 2022,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 21,
+        name: "Midjourney",
+        company: "Midjourney, Inc.",
+        visits: "410M",
+        change: -2.1,
+        launch: "12 Jul 2022",
+        rating: 9.5,
+        year: 2022,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 22,
+        name: "DALL·E 3",
+        company: "OpenAI",
+        visits: "380M",
+        change: 5.6,
+        launch: "28 Sep 2023",
+        rating: 9.4,
+        year: 2023,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 23,
+        name: "Runway",
+        company: "Runway AI",
+        visits: "180M",
+        change: 23.7,
+        launch: "9 Feb 2018",
+        rating: 9.0,
+        year: 2018,
+        capabilities: ["Imagen", "Video"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 24,
+        name: "Synthesia",
+        company: "Synthesia",
+        visits: "150M",
+        change: 19.3,
+        launch: "28 Mar 2021",
+        rating: 8.8,
+        year: 2021,
+        capabilities: ["Video", "Audio", "Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 25,
+        name: "Lumiere",
+        company: "Google",
+        visits: "110M",
+        change: 32.8,
+        launch: "12 Feb 2024",
+        rating: 9.2,
+        year: 2024,
+        capabilities: ["Video"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 26,
+        name: "OpusClip",
+        company: "OpusClip",
+        visits: "90M",
+        change: 28.4,
+        launch: "5 Apr 2023",
+        rating: 8.7,
+        year: 2023,
+        capabilities: ["Video"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 27,
+        name: "Filmora AI",
+        company: "Wondershare",
+        visits: "130M",
+        change: 12.6,
+        launch: "18 Jan 2023",
+        rating: 8.8,
+        year: 2023,
+        capabilities: ["Video"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 28,
+        name: "Upscayl",
+        company: "Upscayl",
+        visits: "85M",
+        change: 10.7,
+        launch: "3 Aug 2022",
+        rating: 8.6,
+        year: 2022,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 29,
+        name: "Deep Dream Generator",
+        company: "Deep Dream Generator",
+        visits: "70M",
+        change: 5.2,
+        launch: "1 Jul 2015",
+        rating: 8.3,
+        year: 2015,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 30,
+        name: "Artbreeder",
+        company: "Artbreeder",
+        visits: "65M",
+        change: 8.9,
+        launch: "20 Sep 2018",
+        rating: 8.4,
+        year: 2018,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 31,
+        name: "ElevenLabs",
+        company: "ElevenLabs, Inc.",
+        visits: "290M",
+        change: 22.8,
+        launch: "1 Mar 2023",
+        rating: 9.1,
+        year: 2023,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 32,
+        name: "Murf",
+        company: "Murf AI",
+        visits: "110M",
+        change: 16.4,
+        launch: "12 May 2021",
+        rating: 8.7,
+        year: 2021,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 33,
+        name: "Suno",
+        company: "Suno AI",
+        visits: "130M",
+        change: 30.2,
+        launch: "5 Dec 2023",
+        rating: 9.0,
+        year: 2023,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 34,
+        name: "Udio",
+        company: "Udio AI",
+        visits: "85M",
+        change: 14.7,
+        launch: "18 Aug 2022",
+        rating: 8.5,
+        year: 2022,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 35,
+        name: "AssemblyAI",
+        company: "AssemblyAI",
+        visits: "95M",
+        change: 18.6,
+        launch: "23 Jun 2017",
+        rating: 8.8,
+        year: 2017,
+        capabilities: ["Audio", "Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 36,
+        name: "Descript",
+        company: "Descript",
+        visits: "120M",
+        change: 15.3,
+        launch: "5 Jan 2017",
+        rating: 8.9,
+        year: 2017,
+        capabilities: ["Audio", "Video", "Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 37,
+        name: "Voicemod",
+        company: "Voicemod",
+        visits: "100M",
+        change: 13.7,
+        launch: "12 Nov 2014",
+        rating: 8.6,
+        year: 2014,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 38,
+        name: "Resemble AI",
+        company: "Resemble AI",
+        visits: "80M",
+        change: 17.5,
+        launch: "15 Mar 2019",
+        rating: 8.7,
+        year: 2019,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 39,
+        name: "Cleanvoice AI",
+        company: "Cleanvoice",
+        visits: "70M",
+        change: 12.8,
+        launch: "8 Sep 2021",
+        rating: 8.4,
+        year: 2021,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 40,
+        name: "VocalRemover",
+        company: "VocalRemover",
+        visits: "65M",
+        change: 9.4,
+        launch: "20 Jul 2020",
+        rating: 8.3,
+        year: 2020,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 41,
+        name: "Zapier",
+        company: "Zapier",
+        visits: "180M",
+        change: 14.7,
+        launch: "8 Aug 2011",
+        rating: 9.2,
+        year: 2011,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 42,
+        name: "ClickUp",
+        company: "ClickUp",
+        visits: "150M",
+        change: 20.5,
+        launch: "15 Jan 2017",
+        rating: 8.9,
+        year: 2017,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 43,
+        name: "Asana",
+        company: "Asana",
+        visits: "210M",
+        change: 8.3,
+        launch: "28 Apr 2008",
+        rating: 9.0,
+        year: 2008,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 44,
+        name: "Reclaim",
+        company: "Reclaim.ai",
+        visits: "85M",
+        change: 25.6,
+        launch: "9 Nov 2019",
+        rating: 8.8,
+        year: 2019,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 45,
+        name: "Clockwise",
+        company: "Clockwise",
+        visits: "90M",
+        change: 19.4,
+        launch: "11 May 2018",
+        rating: 8.7,
+        year: 2018,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 46,
+        name: "Motion",
+        company: "Motion",
+        visits: "75M",
+        change: 22.8,
+        launch: "3 Feb 2020",
+        rating: 8.6,
+        year: 2020,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 47,
+        name: "HubSpot Email Writer",
+        company: "HubSpot",
+        visits: "130M",
+        change: 15.9,
+        launch: "15 Jul 2022",
+        rating: 8.8,
+        year: 2022,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 48,
+        name: "Fathom",
+        company: "Fathom",
+        visits: "95M",
+        change: 28.4,
+        launch: "7 Sep 2022",
+        rating: 8.9,
+        year: 2022,
+        capabilities: ["Texto", "Audio", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 49,
+        name: "Fireflies.ai",
+        company: "Fireflies.ai",
+        visits: "110M",
+        change: 24.6,
+        launch: "12 Mar 2019",
+        rating: 9.0,
+        year: 2019,
+        capabilities: ["Audio", "Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 50,
+        name: "Nyota",
+        company: "Nyota AI",
+        visits: "70M",
+        change: 18.7,
+        launch: "5 Oct 2022",
+        rating: 8.5,
+        year: 2022,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 51,
+        name: "Cursor",
+        company: "Cursor",
+        visits: "140M",
+        change: 35.8,
+        launch: "18 Feb 2023",
+        rating: 9.1,
+        year: 2023,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 52,
+        name: "Bubble",
+        company: "Bubble",
+        visits: "170M",
+        change: 16.2,
+        launch: "15 Aug 2012",
+        rating: 9.0,
+        year: 2012,
+        capabilities: ["Código", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 53,
+        name: "Bolt",
+        company: "Bolt",
+        visits: "85M",
+        change: 28.1,
+        launch: "20 Jun 2022",
+        rating: 8.7,
+        year: 2022,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 54,
+        name: "Lovable",
+        company: "Lovable",
+        visits: "60M",
+        change: 20.5,
+        launch: "7 Jan 2023",
+        rating: 8.4,
+        year: 2023,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 55,
+        name: "v0.dev",
+        company: "Vercel",
+        visits: "125M",
+        change: 42.3,
+        launch: "25 Sep 2023",
+        rating: 9.2,
+        year: 2023,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 56,
+        name: "GitHub Copilot",
+        company: "GitHub/Microsoft",
+        visits: "320M",
+        change: 8.9,
+        launch: "29 Jun 2022",
+        rating: 9.3,
+        year: 2022,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 57,
+        name: "Amazon CodeWhisperer",
+        company: "Amazon",
+        visits: "160M",
+        change: 12.7,
+        launch: "15 Apr 2023",
+        rating: 8.8,
+        year: 2023,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 58,
+        name: "Replit Ghostwriter",
+        company: "Replit",
+        visits: "140M",
+        change: 18.4,
+        launch: "22 Mar 2023",
+        rating: 8.9,
+        year: 2023,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 59,
+        name: "Tabnine",
+        company: "Tabnine",
+        visits: "95M",
+        change: 10.8,
+        launch: "5 May 2018",
+        rating: 8.6,
+        year: 2018,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 60,
+        name: "Kite",
+        company: "Kite",
+        visits: "45M",
+        change: -3.2,
+        launch: "10 Apr 2015",
+        rating: 7.8,
+        year: 2015,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 61,
+        name: "Canva",
+        company: "Canva",
+        visits: "220M",
+        change: 18.5,
+        launch: "21 Jan 2013",
+        rating: 9.4,
+        year: 2013,
+        capabilities: ["Imagen", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 62,
+        name: "Copy.ai",
+        company: "Copy.ai",
+        visits: "130M",
+        change: 14.7,
+        launch: "18 Sep 2020",
+        rating: 8.7,
+        year: 2020,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 63,
+        name: "Jasper",
+        company: "Jasper",
+        visits: "170M",
+        change: 9.5,
+        launch: "12 Feb 2021",
+        rating: 8.9,
+        year: 2021,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 64,
+        name: "Writesonic",
+        company: "Writesonic",
+        visits: "110M",
+        change: 13.8,
+        launch: "5 Aug 2020",
+        rating: 8.6,
+        year: 2020,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 65,
+        name: "Liner",
+        company: "Liner",
+        visits: "75M",
+        change: 8.4,
+        launch: "20 Jun 2018",
+        rating: 8.3,
+        year: 2018,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 66,
+        name: "Eightify",
+        company: "Eightify",
+        visits: "65M",
+        change: 16.7,
+        launch: "15 Jan 2023",
+        rating: 8.5,
+        year: 2023,
+        capabilities: ["Video", "Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 67,
+        name: "Phind",
+        company: "Phind",
+        visits: "90M",
+        change: 27.3,
+        launch: "2 Mar 2023",
+        rating: 8.8,
+        year: 2023,
+        capabilities: ["Texto", "Razonamiento"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 68,
+        name: "MaxAI",
+        company: "MaxAI",
+        visits: "60M",
+        change: 19.5,
+        launch: "8 Sep 2022",
+        rating: 8.4,
+        year: 2022,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 69,
+        name: "Blackbox AI",
+        company: "Blackbox",
+        visits: "85M",
+        change: 23.6,
+        launch: "12 Nov 2022",
+        rating: 8.7,
+        year: 2022,
+        capabilities: ["Código"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 70,
+        name: "Otter.ai",
+        company: "Otter.ai",
+        visits: "140M",
+        change: 16.8,
+        launch: "15 Feb 2018",
+        rating: 9.0,
+        year: 2018,
+        capabilities: ["Audio", "Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 71,
+        name: "ChatPDF",
+        company: "ChatPDF",
+        visits: "110M",
+        change: 32.5,
+        launch: "3 Apr 2023",
+        rating: 8.9,
+        year: 2023,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 72,
+        name: "Cutout.pro",
+        company: "Cutout.pro",
+        visits: "85M",
+        change: 14.3,
+        launch: "21 Jul 2020",
+        rating: 8.6,
+        year: 2020,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 73,
+        name: "Craiyon",
+        company: "Craiyon",
+        visits: "70M",
+        change: 10.7,
+        launch: "10 May 2022",
+        rating: 8.4,
+        year: 2022,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 74,
+        name: "Hotpot.ai",
+        company: "Hotpot.ai",
+        visits: "65M",
+        change: 12.5,
+        launch: "8 Aug 2021",
+        rating: 8.3,
+        year: 2021,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 75,
+        name: "Leonardo.ai",
+        company: "Leonardo.ai",
+        visits: "130M",
+        change: 28.6,
+        launch: "5 Dec 2022",
+        rating: 9.1,
+        year: 2022,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 76,
+        name: "DeepAI",
+        company: "DeepAI",
+        visits: "90M",
+        change: 15.2,
+        launch: "18 Mar 2018",
+        rating: 8.7,
+        year: 2018,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 77,
+        name: "Tome.app",
+        company: "Tome",
+        visits: "120M",
+        change: 30.4,
+        launch: "20 Oct 2022",
+        rating: 9.0,
+        year: 2022,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 78,
+        name: "Stablediffusionweb.com",
+        company: "Stability AI",
+        visits: "180M",
+        change: 8.3,
+        launch: "22 Aug 2022",
+        rating: 9.2,
+        year: 2022,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 79,
+        name: "Gamma",
+        company: "Gamma",
+        visits: "95M",
+        change: 25.7,
+        launch: "15 Nov 2022",
+        rating: 8.8,
+        year: 2022,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 80,
+        name: "Presentations.ai",
+        company: "Presentations.ai",
+        visits: "75M",
+        change: 16.9,
+        launch: "8 Jan 2023",
+        rating: 8.5,
+        year: 2023,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 81,
+        name: "Teal",
+        company: "Teal",
+        visits: "60M",
+        change: 14.2,
+        launch: "2 Apr 2020",
+        rating: 8.4,
+        year: 2020,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 82,
+        name: "Kickresume",
+        company: "Kickresume",
+        visits: "55M",
+        change: 9.6,
+        launch: "15 May 2015",
+        rating: 8.2,
+        year: 2015,
+        capabilities: ["Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 83,
+        name: "AdCreative",
+        company: "AdCreative.ai",
+        visits: "85M",
+        change: 18.3,
+        launch: "10 Jul 2021",
+        rating: 8.7,
+        year: 2021,
+        capabilities: ["Imagen", "Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 84,
+        name: "Clay",
+        company: "Clay",
+        visits: "70M",
+        change: 15.7,
+        launch: "5 Sep 2020",
+        rating: 8.5,
+        year: 2020,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 85,
+        name: "Hiver",
+        company: "Hiver",
+        visits: "65M",
+        change: 11.4,
+        launch: "12 Aug 2011",
+        rating: 8.4,
+        year: 2011,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 86,
+        name: "Tidio AI",
+        company: "Tidio",
+        visits: "80M",
+        change: 19.8,
+        launch: "18 Jun 2018",
+        rating: 8.6,
+        year: 2018,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 87,
+        name: "CVViZ",
+        company: "CVViZ",
+        visits: "50M",
+        change: 12.6,
+        launch: "3 Mar 2019",
+        rating: 8.1,
+        year: 2019,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 88,
+        name: "Guru",
+        company: "Guru",
+        visits: "75M",
+        change: 8.9,
+        launch: "25 Sep 2015",
+        rating: 8.5,
+        year: 2015,
+        capabilities: ["Texto", "Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 89,
+        name: "Sembly",
+        company: "Sembly AI",
+        visits: "55M",
+        change: 15.3,
+        launch: "8 Aug 2021",
+        rating: 8.3,
+        year: 2021,
+        capabilities: ["Audio", "Texto"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 90,
+        name: "Clara",
+        company: "Clara Labs",
+        visits: "45M",
+        change: 7.8,
+        launch: "12 May 2014",
+        rating: 8.0,
+        year: 2014,
+        capabilities: ["Automatización"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 91,
+        name: "Rephrase.ai",
+        company: "Rephrase.ai",
+        visits: "70M",
+        change: 21.5,
+        launch: "7 Nov 2019",
+        rating: 8.6,
+        year: 2019,
+        capabilities: ["Video"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 92,
+        name: "Pictory",
+        company: "Pictory",
+        visits: "85M",
+        change: 18.7,
+        launch: "15 Jan 2021",
+        rating: 8.7,
+        year: 2021,
+        capabilities: ["Video"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 93,
+        name: "Lovo",
+        company: "Lovo AI",
+        visits: "60M",
+        change: 12.4,
+        launch: "10 Mar 2020",
+        rating: 8.3,
+        year: 2020,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 94,
+        name: "WellSaid",
+        company: "WellSaid Labs",
+        visits: "55M",
+        change: 9.6,
+        launch: "5 Feb 2019",
+        rating: 8.2,
+        year: 2019,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 95,
+        name: "Boomy",
+        company: "Boomy Corporation",
+        visits: "50M",
+        change: 14.8,
+        launch: "22 Apr 2021",
+        rating: 8.1,
+        year: 2021,
+        capabilities: ["Audio"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 96,
+        name: "Stockimg.ai",
+        company: "Stockimg.ai",
+        visits: "65M",
+        change: 15.2,
+        launch: "18 Jul 2022",
+        rating: 8.4,
+        year: 2022,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 97,
+        name: "ColorMind",
+        company: "ColorMind",
+        visits: "40M",
+        change: 5.7,
+        launch: "3 Jan 2017",
+        rating: 7.9,
+        year: 2017,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 98,
+        name: "PhotoRoom",
+        company: "PhotoRoom",
+        visits: "90M",
+        change: 24.6,
+        launch: "15 Jun 2020",
+        rating: 8.8,
+        year: 2020,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 99,
+        name: "FaceApp",
+        company: "FaceApp Inc.",
+        visits: "120M",
+        change: 6.5,
+        launch: "15 Jan 2017",
+        rating: 8.5,
+        year: 2017,
+        capabilities: ["Imagen"],
+        logo: "https://via.placeholder.com/40"
+      },
+      {
+        id: 100,
+        name: "Sora",
+        company: "OpenAI",
+        visits: "180M",
+        change: 45.7,
+        launch: "15 Feb 2024",
+        rating: 9.5,
+        year: 2024,
+        capabilities: ["Video"],
+        logo: "https://via.placeholder.com/40"
+      }
+    ];
+    
     // Script sin dependencias de localStorage
     document.addEventListener('DOMContentLoaded', function() {
       // Variables para estado temporal (sin persistencia)
@@ -719,6 +1693,7 @@
       let currentCategory = 'todas';
       let currentPage = 1;
       let favorites = [];
+      const itemsPerPage = 10;
       
       // Intentar usar el sistema preferido del usuario
       try {
@@ -730,6 +1705,9 @@
       } catch (e) {
         console.log('No se pudo detectar la preferencia de tema del sistema');
       }
+      
+      // Inicializar la tabla
+      updateTable();
       
       // Botón modo oscuro
       const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -750,7 +1728,8 @@
         favoritesToggle.addEventListener('click', function() {
           showFavorites = !showFavorites;
           updateFavoritesButton();
-          // Aquí iría la lógica para filtrar la tabla por favoritos
+          currentPage = 1;
+          updateTable();
         });
       }
       
@@ -760,22 +1739,9 @@
         button.addEventListener('click', function() {
           const category = this.getAttribute('data-category');
           setActiveCategory(category);
-          // Aquí iría la lógica para filtrar la tabla por categoría
+          currentPage = 1;
+          updateTable();
         });
-      });
-      
-      // Botones de paginación
-      const pageButtons = document.querySelectorAll('.page-button');
-      pageButtons.forEach(button => {
-        if (button.textContent !== '←' && button.textContent !== '→') {
-          button.addEventListener('click', function() {
-            const page = parseInt(this.textContent);
-            if (!isNaN(page)) {
-              setActivePage(page);
-              // Aquí iría la lógica para cambiar de página
-            }
-          });
-        }
       });
       
       // Funciones auxiliares
@@ -825,18 +1791,130 @@
         });
       }
       
-      function setActivePage(page) {
-        currentPage = page;
-        pageButtons.forEach(button => {
-          if (button.textContent !== '←' && button.textContent !== '→') {
-            const buttonPage = parseInt(button.textContent);
-            if (!isNaN(buttonPage) && buttonPage === page) {
-              button.classList.add('active');
-            } else {
-              button.classList.remove('active');
-            }
+      // Función para filtrar IAs por categoría
+      function getFilteredIAs() {
+        return allIAs.filter(ai => {
+          // Filtrar por categoría
+          const matchesCategory = currentCategory === 'todas' || 
+                                ai.capabilities.map(c => c.toLowerCase()).includes(currentCategory.toLowerCase());
+          
+          // Filtrar por favoritos (no implementado completamente en esta versión)
+          const matchesFavorites = !showFavorites || favorites.includes(ai.id);
+          
+          return matchesCategory && matchesFavorites;
+        });
+      }
+      
+      // Actualizar la tabla con los datos filtrados
+      function updateTable() {
+        const filteredIAs = getFilteredIAs();
+        const tableBody = document.getElementById('ai-table-body');
+        
+        // Calcular IAs para la página actual
+        const indexOfLastItem = currentPage * itemsPerPage;
+        const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+        const currentIAs = filteredIAs.slice(indexOfFirstItem, indexOfFirstItem + itemsPerPage);
+        
+        // Limpiar la tabla
+        tableBody.innerHTML = '';
+        
+        // Generar filas de la tabla
+        currentIAs.forEach(ai => {
+          const row = document.createElement('tr');
+          
+          // Clase para cambio positivo o negativo
+          const changeClass = ai.change >= 0 ? 'up' : 'down';
+          
+          row.innerHTML = `
+            <td>${ai.id}</td>
+            <td>
+              <div class="ai-info">
+                <img src="${ai.logo}" alt="${ai.name}" class="ai-logo">
+                <div>
+                  <div class="ai-name">${ai.name}</div>
+                  <div class="ai-company">${ai.company}</div>
+                </div>
+              </div>
+            </td>
+            <td>${ai.visits}</td>
+            <td class="${changeClass}">${Math.abs(ai.change).toFixed(1)}%</td>
+            <td class="hide-mobile">${ai.launch}</td>
+            <td>${ai.rating}</td>
+            <td>
+              <div class="badge-container">
+                ${ai.capabilities.map(cap => `<span class="badge">${cap}</span>`).join('')}
+              </div>
+            </td>
+          `;
+          
+          tableBody.appendChild(row);
+        });
+        
+        // Actualizar información de paginación
+        updatePagination(filteredIAs.length);
+      }
+      
+      // Actualizar la paginación
+      function updatePagination(totalItems) {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        const paginationContainer = document.getElementById('pagination-container');
+        const pageInfo = document.getElementById('page-info');
+        
+        // Actualizar información de página
+        pageInfo.innerHTML = `
+          Mostrando <strong>${Math.min(totalItems, (currentPage - 1) * itemsPerPage + 1)}</strong> a 
+          <strong>${Math.min(totalItems, currentPage * itemsPerPage)}</strong> de <strong>${totalItems}</strong> IAs
+        `;
+        
+        // Limpiar contenedor de paginación
+        paginationContainer.innerHTML = '';
+        
+        // Crear botones de paginación
+        // Botón anterior
+        const prevButton = document.createElement('button');
+        prevButton.className = `page-button${currentPage === 1 ? ' disabled' : ''}`;
+        prevButton.innerHTML = '←';
+        prevButton.disabled = currentPage === 1;
+        prevButton.addEventListener('click', () => {
+          if (currentPage > 1) {
+            currentPage--;
+            updateTable();
           }
         });
+        paginationContainer.appendChild(prevButton);
+        
+        // Botones de página
+        const maxButtons = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+        let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+        
+        if (endPage - startPage + 1 < maxButtons) {
+          startPage = Math.max(1, endPage - maxButtons + 1);
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+          const pageButton = document.createElement('button');
+          pageButton.className = `page-button${i === currentPage ? ' active' : ''}`;
+          pageButton.textContent = i;
+          pageButton.addEventListener('click', () => {
+            currentPage = i;
+            updateTable();
+          });
+          paginationContainer.appendChild(pageButton);
+        }
+        
+        // Botón siguiente
+        const nextButton = document.createElement('button');
+        nextButton.className = `page-button${currentPage === totalPages ? ' disabled' : ''}`;
+        nextButton.innerHTML = '→';
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.addEventListener('click', () => {
+          if (currentPage < totalPages) {
+            currentPage++;
+            updateTable();
+          }
+        });
+        paginationContainer.appendChild(nextButton);
       }
     });
   </script>
