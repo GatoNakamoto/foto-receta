@@ -10,55 +10,20 @@
     /* Fuentes */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
-    /* Variables CSS para tema claro/oscuro */
+    /* Variables CSS para tema oscuro por defecto */
     :root {
       --primary: #3b82f6;
       --primary-dark: #2563eb;
-      --primary-light: #93c5fd;
+      --primary-light: #60a5fa;
       --success: #10b981;
       --warning: #f59e0b;
       --danger: #ef4444;
-      --bg-primary: #ffffff;
-      --bg-secondary: #f9fafb;
-      --bg-tertiary: #f3f4f6;
-      --bg-accent: #ebf5ff;
-      --border: #e5e7eb;
-      --text-primary: #111827;
-      --text-secondary: #4b5563;
-      --text-tertiary: #6b7280;
-      --text-muted: #9ca3af;
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --radius-sm: 0.25rem;
-      --radius: 0.5rem;
-      --radius-lg: 0.75rem;
-      --radius-full: 9999px;
-      --transition: all 0.2s ease;
-      --transition-theme: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
-      
-      /* Colores de premio para top 3 */
-      --gold: linear-gradient(135deg, #f6e05e 0%, #fbbf24 50%, #d97706 100%);
-      --silver: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 50%, #6b7280 100%);
-      --bronze: linear-gradient(135deg, #d97706 0%, #b45309 50%, #92400e 100%);
-      --gold-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
-      --silver-shadow: 0 0 15px rgba(156, 163, 175, 0.3);
-      --bronze-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
-    }
-    
-    /* Variables modo oscuro */
-    .dark-mode {
-      --primary: #3b82f6;
-      --primary-dark: #2563eb;
-      --primary-light: #93c5fd;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --bg-primary: #1f2937;
-      --bg-secondary: #111827;
+      --bg-primary: #121826;
+      --bg-secondary: #1a2234;
       --bg-tertiary: #0f172a;
       --bg-accent: #1e3a8a;
+      --card-bg: #1e293b;
+      --card-bg-alt: #17203a;
       --border: #374151;
       --text-primary: #f9fafb;
       --text-secondary: #e5e7eb;
@@ -68,10 +33,49 @@
       --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-      
-      /* Acento secundario para modo oscuro */
-      --accent-neon: #4ade80; /* Verde neón */
+      --radius-sm: 0.25rem;
+      --radius: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-full: 9999px;
+      --transition: all 0.2s ease;
+      --transition-theme: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+      --accent-neon: #4ade80;
       --accent-glow: 0 0 10px rgba(74, 222, 128, 0.5);
+      
+      /* Colores de premio para top 3 */
+      --gold: linear-gradient(135deg, #f6e05e 0%, #fbbf24 50%, #d97706 100%);
+      --silver: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 50%, #6b7280 100%);
+      --bronze: linear-gradient(135deg, #d97706 0%, #b45309 50%, #92400e 100%);
+      --gold-border: rgba(251, 191, 36, 0.5);
+      --silver-border: rgba(156, 163, 175, 0.5);
+      --bronze-border: rgba(217, 119, 6, 0.5);
+      --gold-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+      --silver-shadow: 0 0 15px rgba(156, 163, 175, 0.3);
+      --bronze-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
+      
+      /* Variables para el tema claro */
+      --light-bg-primary: #ffffff;
+      --light-bg-secondary: #f9fafb;
+      --light-bg-tertiary: #f3f4f6;
+      --light-card-bg: #ffffff;
+      --light-card-bg-alt: #f7f9fc;
+      --light-border: #e5e7eb;
+      --light-text-primary: #111827;
+      --light-text-secondary: #4b5563;
+      --light-text-tertiary: #6b7280;
+    }
+    
+    /* Variables modo claro */
+    .light-mode {
+      --bg-primary: var(--light-bg-primary);
+      --bg-secondary: var(--light-bg-secondary);
+      --bg-tertiary: var(--light-bg-tertiary);
+      --card-bg: var(--light-card-bg);
+      --card-bg-alt: var(--light-card-bg-alt);
+      --border: var(--light-border);
+      --text-primary: var(--light-text-primary);
+      --text-secondary: var(--light-text-secondary);
+      --text-tertiary: var(--light-text-tertiary);
     }
     
     /* Estilos base */
@@ -93,7 +97,7 @@
     
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-tertiary);
+      background-color: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -175,7 +179,7 @@
     }
     
     .logo:hover {
-      color: var(--primary-dark);
+      color: var(--primary-light);
       text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
     }
     
@@ -200,7 +204,7 @@
     
     .button:hover {
       background-color: var(--bg-accent);
-      color: var(--primary);
+      color: var(--primary-light);
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
     }
@@ -234,75 +238,14 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
     
-    /* Barra de búsqueda mejorada */
-    .search-bar {
-      background-color: var(--bg-secondary);
-      border-bottom: 1px solid var(--border);
-      padding: 1.25rem 0;
-      transition: var(--transition-theme);
-    }
-    
-    .search-container {
-      max-width: 640px;
-      margin: 0 auto;
-      position: relative;
-    }
-    
-    .search-input {
-      width: 100%;
-      padding: 0.85rem 1.25rem 0.85rem 3rem;
-      border-radius: var(--radius-full);
-      border: 2px solid var(--border);
-      background-color: var(--bg-primary);
-      background-image: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
-      color: var(--text-primary);
-      font-size: 1rem;
-      box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
-    }
-    
-    .search-input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: var(--shadow-lg), 0 0 0 4px rgba(59, 130, 246, 0.2);
-      transform: scale(1.01);
-    }
-    
-    .search-input::placeholder {
-      color: var(--text-muted);
-    }
-    
-    .search-icon {
-      position: absolute;
-      left: 1.1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1.35rem;
-      height: 1.35rem;
-      color: var(--text-muted);
-      pointer-events: none;
-      stroke-width: 2.5;
-    }
-    
-    .search-input:focus + .search-icon {
-      color: var(--primary);
-      transform: translateY(-50%) scale(1.1);
-    }
-    
-    /* Área principal */
-    .main {
-      padding: 2rem 0;
-      animation: fadeIn 0.5s ease-out;
-    }
-    
-    /* Filtros de categoría mejorados */
+    /* Filtros mejorados */
     .filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.625rem;
-      margin-bottom: 1.75rem;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
       overflow-x: auto;
-      padding-bottom: 0.625rem;
+      padding: 0.5rem 0;
       scrollbar-width: thin;
       scrollbar-color: var(--text-muted) transparent;
     }
@@ -331,6 +274,8 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
@@ -345,35 +290,18 @@
       box-shadow: var(--shadow-md);
     }
     
-    .filter-button.active:hover {
-      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
-      transform: translateY(-1px);
-    }
-    
-    .dark-mode .filter-button.active {
-      box-shadow: 0 0 10px var(--accent-neon);
-    }
-    
-    .filter-button:not(.active) {
-      background-color: var(--bg-primary);
-      color: var(--text-secondary);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .filter-button:not(.active):hover {
-      background-color: var(--bg-accent);
-      color: var(--primary);
+    .filter-button:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
     }
     
-    .filter-button:not(.active):active {
-      transform: translateY(0);
+    .filter-button.active:hover {
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
     }
     
     /* Tabla mejorada */
     .card {
-      background-color: var(--bg-primary);
+      background-color: var(--card-bg);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
@@ -438,11 +366,12 @@
     tr {
       position: relative;
       transition: all 0.2s ease;
+      background-color: var(--card-bg);
     }
     
     /* Zebra striping */
     tbody tr:nth-child(even) {
-      background-color: var(--bg-tertiary);
+      background-color: var(--card-bg-alt);
     }
     
     /* Hover de filas con microinteracciones */
@@ -460,18 +389,18 @@
     }
     
     .top-1 {
-      background-color: rgba(251, 191, 36, 0.05);
-      box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.3), var(--gold-shadow);
+      background-color: rgba(251, 191, 36, 0.1);
+      box-shadow: inset 0 0 0 1px var(--gold-border), var(--gold-shadow);
     }
     
     .top-2 {
-      background-color: rgba(229, 231, 235, 0.1);
-      box-shadow: inset 0 0 0 1px rgba(156, 163, 175, 0.3), var(--silver-shadow);
+      background-color: rgba(229, 231, 235, 0.05);
+      box-shadow: inset 0 0 0 1px var(--silver-border), var(--silver-shadow);
     }
     
     .top-3 {
-      background-color: rgba(217, 119, 6, 0.05);
-      box-shadow: inset 0 0 0 1px rgba(217, 119, 6, 0.2), var(--bronze-shadow);
+      background-color: rgba(217, 119, 6, 0.08);
+      box-shadow: inset 0 0 0 1px var(--bronze-border), var(--bronze-shadow);
     }
     
     .top-1::before, .top-2::before, .top-3::before {
@@ -623,7 +552,7 @@
     }
     
     .favorite-star.active {
-      background-color: #fef3c7;
+      background-color: rgba(251, 191, 36, 0.2);
       animation: pulse 0.3s ease-in-out;
     }
     
@@ -642,6 +571,13 @@
       border: 2px solid var(--bg-secondary);
       flex-shrink: 0;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 0.875rem;
     }
     
     tr:hover .ai-logo {
@@ -757,11 +693,6 @@
       box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
     }
     
-    .dark-mode tr:hover .rating-progress {
-      background: linear-gradient(90deg, var(--primary-dark), var(--accent-neon));
-      box-shadow: var(--accent-glow);
-    }
-    
     .rating-value {
       font-size: 0.875rem;
       font-weight: 600;
@@ -770,22 +701,25 @@
       text-align: right;
     }
     
-    /* Badges mejorados */
+    /* Badges mejorados para capacidades */
     .badge-container {
       display: flex;
       flex-wrap: wrap;
       gap: 0.375rem;
-      margin-top: 0.25rem;
     }
     
     .badge {
       font-size: 0.75rem;
       font-weight: 500;
-      padding: 0.25rem 0.625rem;
+      padding: 0.375rem 0.75rem;
       border-radius: var(--radius-full);
-      background-color: var(--bg-accent);
-      color: var(--primary-dark);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }
     
     tr:hover .badge {
@@ -793,8 +727,40 @@
       box-shadow: var(--shadow-sm);
     }
     
-    .dark-mode .badge {
-      border: 1px solid rgba(74, 222, 128, 0.3);
+    /* Badges específicos por categoría */
+    .badge.texto {
+      background-color: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+    }
+    
+    .badge.imagen {
+      background-color: rgba(244, 114, 182, 0.2);
+      color: #f472b6;
+    }
+    
+    .badge.audio {
+      background-color: rgba(168, 85, 247, 0.2);
+      color: #a855f7;
+    }
+    
+    .badge.video {
+      background-color: rgba(236, 72, 153, 0.2);
+      color: #ec4899;
+    }
+    
+    .badge.codigo {
+      background-color: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+    
+    .badge.razonamiento {
+      background-color: rgba(234, 179, 8, 0.2);
+      color: #eab308;
+    }
+    
+    .badge.automatizacion {
+      background-color: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
     }
     
     /* Paginación mejorada */
@@ -831,7 +797,7 @@
       font-size: 0.875rem;
       font-weight: 500;
       color: var(--text-secondary);
-      background-color: var(--bg-primary);
+      background-color: var(--card-bg);
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -848,15 +814,11 @@
     
     .page-button.active {
       background-color: var(--bg-accent);
-      color: var(--primary);
-      border-color: var(--primary-light);
+      color: white;
+      border-color: var(--primary-dark);
       font-weight: 600;
       z-index: 1;
       box-shadow: inset 0 1px 3px rgba(66, 153, 225, 0.2);
-    }
-    
-    .dark-mode .page-button.active {
-      box-shadow: 0 0 5px var(--accent-neon);
     }
     
     .page-button:not(:first-child) {
@@ -880,7 +842,7 @@
       bottom: 1.5rem;
       right: 1.5rem;
       padding: 1rem 1.25rem;
-      background-color: var(--bg-primary);
+      background-color: var(--card-bg);
       color: var(--text-primary);
       border-radius: var(--radius);
       box-shadow: var(--shadow-lg);
@@ -911,6 +873,54 @@
     .notification-text {
       font-size: 0.9375rem;
       font-weight: 500;
+    }
+    
+    /* Búsqueda mejorada */
+    .search-bar {
+      background-color: var(--bg-secondary);
+      padding: 1.25rem 0;
+      box-shadow: 0 1px 0 var(--border);
+      transition: var(--transition-theme);
+    }
+    
+    .search-container {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 0.85rem 1.25rem 0.85rem 3rem;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--border);
+      background-color: var(--card-bg);
+      color: var(--text-primary);
+      font-size: 1rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg), 0 0 0 4px rgba(59, 130, 246, 0.2);
+    }
+    
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.35rem;
+      height: 1.35rem;
+      color: var(--text-muted);
+      pointer-events: none;
+      stroke-width: 2.5;
     }
     
     /* Responsive */
@@ -949,6 +959,10 @@
       .logo {
         font-size: 1.75rem;
       }
+      
+      .filters {
+        justify-content: center;
+      }
     }
     
     @media (max-width: 640px) {
@@ -961,26 +975,38 @@
         align-items: flex-start;
         gap: 0.25rem;
       }
+      
+      .badge-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        max-width: 100%;
+      }
     }
     
     @media (max-width: 480px) {
       .ai-logo {
         width: 2rem;
         height: 2rem;
+        font-size: 0.7rem;
       }
       
       .badge {
         font-size: 0.6875rem;
-        padding: 0.2rem 0.375rem;
+        padding: 0.25rem 0.5rem;
+      }
+      
+      th:nth-child(4), td:nth-child(4),
+      th:nth-child(5), td:nth-child(5) {
+        display: none;
       }
     }
     
-    /* Estados adicionales y utilidades */
+    /* Utilidades */
     .hidden {
       display: none;
     }
     
-    /* Animaciones específicas */
     .fade-in {
       animation: fadeIn 0.5s ease-out;
     }
@@ -991,47 +1017,6 @@
     
     .pulse {
       animation: pulse 1s ease-in-out;
-    }
-    
-    /* Skeleton loader (para contenido en carga) */
-    .skeleton {
-      background: linear-gradient(90deg, var(--bg-secondary) 0%, var(--bg-accent) 50%, var(--bg-secondary) 100%);
-      background-size: 1800px 100%;
-      animation: shimmer 2s linear infinite;
-      border-radius: var(--radius);
-    }
-    
-    /* Estilo de desplazamiento suave */
-    * {
-      scroll-behavior: smooth;
-      scroll-margin-top: 5rem;
-    }
-    
-    /* Secciones sin resultados */
-    .empty-state {
-      padding: 3rem 1.5rem;
-      text-align: center;
-      animation: fadeIn 0.5s ease-out;
-    }
-    
-    .empty-icon {
-      font-size: 3rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-    
-    .empty-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-    }
-    
-    .empty-description {
-      font-size: 0.9375rem;
-      color: var(--text-tertiary);
-      max-width: 32rem;
-      margin: 0 auto;
     }
   </style>
 </head>
@@ -1049,7 +1034,7 @@
           </button>
           
           <button id="dark-mode-toggle" class="button" title="Cambiar tema">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
           </button>
         </div>
       </div>
@@ -1066,6 +1051,44 @@
     </div>
   </div>
   
+  <!-- Filtros de categoría -->
+  <div class="container">
+    <div class="filters">
+      <button class="filter-button active" data-category="todas">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Todas
+      </button>
+      <button class="filter-button" data-category="texto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        Texto
+      </button>
+      <button class="filter-button" data-category="imagen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        Imagen
+      </button>
+      <button class="filter-button" data-category="audio">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-1.7 0-3 1.2-3 2.6v6.8c0 1.4 1.3 2.6 3 2.6s3-1.2 3-2.6V4.6C15 3.2 13.7 2 12 2z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18.5v3.5m-4-2h8"></path></svg>
+        Audio
+      </button>
+      <button class="filter-button" data-category="video">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+        Video
+      </button>
+      <button class="filter-button" data-category="codigo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        Código
+      </button>
+      <button class="filter-button" data-category="razonamiento">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        Razonamiento
+      </button>
+      <button class="filter-button" data-category="automatizacion">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Automatización
+      </button>
+    </div>
+  </div>
+  
   <!-- Notificación -->
   <div id="notification" class="notification">
     <svg id="notification-icon" class="notification-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
@@ -1074,41 +1097,6 @@
   
   <main class="main">
     <div class="container">
-      <div class="filters">
-        <button class="filter-button active" data-category="todas">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-          Todas
-        </button>
-        <button class="filter-button" data-category="texto">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-          Texto
-        </button>
-        <button class="filter-button" data-category="imagen">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-          Imagen
-        </button>
-        <button class="filter-button" data-category="audio">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-1.7 0-3 1.2-3 2.6v6.8c0 1.4 1.3 2.6 3 2.6s3-1.2 3-2.6V4.6C15 3.2 13.7 2 12 2z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18.5v3.5m-4-2h8"></path></svg>
-          Audio
-        </button>
-        <button class="filter-button" data-category="video">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
-          Video
-        </button>
-        <button class="filter-button" data-category="codigo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-          Código
-        </button>
-        <button class="filter-button" data-category="razonamiento">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-          Razonamiento
-        </button>
-        <button class="filter-button" data-category="automatizacion">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          Automatización
-        </button>
-      </div>
-      
       <div class="card">
         <div class="table-container">
           <table>
@@ -1155,7 +1143,7 @@
         rating: 9.8,
         year: 2022,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "C"
       },
       {
         id: 2,
@@ -1167,7 +1155,7 @@
         rating: 9.7,
         year: 2023,
         capabilities: ["Texto", "Razonamiento", "Código"],
-        logo: "https://via.placeholder.com/40"
+        logo: "CL"
       },
       {
         id: 3,
@@ -1179,7 +1167,7 @@
         rating: 9.6,
         year: 2023,
         capabilities: ["Texto", "Imagen", "Audio", "Video", "Código", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "G"
       },
       {
         id: 4,
@@ -1191,7 +1179,7 @@
         rating: 9.2,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "P"
       },
       {
         id: 5,
@@ -1203,7 +1191,7 @@
         rating: 9.0,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "P"
       },
       {
         id: 6,
@@ -1215,7 +1203,7 @@
         rating: 8.9,
         year: 2022,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "CA"
       },
       {
         id: 7,
@@ -1227,7 +1215,7 @@
         rating: 9.0,
         year: 2023,
         capabilities: ["Texto", "Código", "Automatización"],
-        logo: "https://via.placeholder.com/40"
+        logo: "MC"
       },
       {
         id: 8,
@@ -1239,7 +1227,7 @@
         rating: 8.9,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "M"
       },
       {
         id: 9,
@@ -1251,7 +1239,7 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "AO"
       },
       {
         id: 10,
@@ -1263,7 +1251,7 @@
         rating: 8.7,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
+        logo: "Y"
       },
       {
         id: 11,
@@ -1275,7 +1263,7 @@
         rating: 9.0,
         year: 2019,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "G"
       },
       {
         id: 12,
@@ -1287,7 +1275,7 @@
         rating: 8.5,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "QB"
       },
       {
         id: 13,
@@ -1299,7 +1287,7 @@
         rating: 9.2,
         year: 2017,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "DL"
       },
       {
         id: 14,
@@ -1311,7 +1299,7 @@
         rating: 8.4,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "WT"
       },
       {
         id: 15,
@@ -1323,1046 +1311,30 @@
         rating: 8.6,
         year: 2021,
         capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
+        logo: "SW"
       },
-      {
-        id: 16,
-        name: "Rytr",
-        company: "Rytr",
-        visits: "95M",
-        change: 15.7,
-        launch: "11 Jan 2021",
-        rating: 8.3,
-        year: 2021,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 17,
-        name: "Textio",
-        company: "Textio",
-        visits: "75M",
-        change: 7.8,
-        launch: "3 Mar 2014",
-        rating: 8.6,
-        year: 2014,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 18,
-        name: "Notion AI",
-        company: "Notion",
-        visits: "240M",
-        change: 28.6,
-        launch: "22 Nov 2022",
-        rating: 9.1,
-        year: 2022,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 19,
-        name: "SaneBox",
-        company: "SaneBox",
-        visits: "65M",
-        change: 5.4,
-        launch: "8 Jun 2015",
-        rating: 8.2,
-        year: 2015,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 20,
-        name: "Shortwave",
-        company: "Shortwave",
-        visits: "45M",
-        change: 10.5,
-        launch: "15 Apr 2022",
-        rating: 8.4,
-        year: 2022,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 21,
-        name: "Midjourney",
-        company: "Midjourney, Inc.",
-        visits: "410M",
-        change: -2.1,
-        launch: "12 Jul 2022",
-        rating: 9.5,
-        year: 2022,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 22,
-        name: "DALL·E 3",
-        company: "OpenAI",
-        visits: "380M",
-        change: 5.6,
-        launch: "28 Sep 2023",
-        rating: 9.4,
-        year: 2023,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 23,
-        name: "Runway",
-        company: "Runway AI",
-        visits: "180M",
-        change: 23.7,
-        launch: "9 Feb 2018",
-        rating: 9.0,
-        year: 2018,
-        capabilities: ["Imagen", "Video"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 24,
-        name: "Synthesia",
-        company: "Synthesia",
-        visits: "150M",
-        change: 19.3,
-        launch: "28 Mar 2021",
-        rating: 8.8,
-        year: 2021,
-        capabilities: ["Video", "Audio", "Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 25,
-        name: "Lumiere",
-        company: "Google",
-        visits: "110M",
-        change: 32.8,
-        launch: "12 Feb 2024",
-        rating: 9.2,
-        year: 2024,
-        capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 26,
-        name: "OpusClip",
-        company: "OpusClip",
-        visits: "90M",
-        change: 28.4,
-        launch: "5 Apr 2023",
-        rating: 8.7,
-        year: 2023,
-        capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 27,
-        name: "Filmora AI",
-        company: "Wondershare",
-        visits: "130M",
-        change: 12.6,
-        launch: "18 Jan 2023",
-        rating: 8.8,
-        year: 2023,
-        capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 28,
-        name: "Upscayl",
-        company: "Upscayl",
-        visits: "85M",
-        change: 10.7,
-        launch: "3 Aug 2022",
-        rating: 8.6,
-        year: 2022,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 29,
-        name: "Deep Dream Generator",
-        company: "Deep Dream Generator",
-        visits: "70M",
-        change: 5.2,
-        launch: "1 Jul 2015",
-        rating: 8.3,
-        year: 2015,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 30,
-        name: "Artbreeder",
-        company: "Artbreeder",
-        visits: "65M",
-        change: 8.9,
-        launch: "20 Sep 2018",
-        rating: 8.4,
-        year: 2018,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 31,
-        name: "ElevenLabs",
-        company: "ElevenLabs, Inc.",
-        visits: "290M",
-        change: 22.8,
-        launch: "1 Mar 2023",
-        rating: 9.1,
-        year: 2023,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 32,
-        name: "Murf",
-        company: "Murf AI",
-        visits: "110M",
-        change: 16.4,
-        launch: "12 May 2021",
-        rating: 8.7,
-        year: 2021,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 33,
-        name: "Suno",
-        company: "Suno AI",
-        visits: "130M",
-        change: 30.2,
-        launch: "5 Dec 2023",
-        rating: 9.0,
-        year: 2023,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 34,
-        name: "Udio",
-        company: "Udio AI",
-        visits: "85M",
-        change: 14.7,
-        launch: "18 Aug 2022",
-        rating: 8.5,
-        year: 2022,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 35,
-        name: "AssemblyAI",
-        company: "AssemblyAI",
-        visits: "95M",
-        change: 18.6,
-        launch: "23 Jun 2017",
-        rating: 8.8,
-        year: 2017,
-        capabilities: ["Audio", "Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 36,
-        name: "Descript",
-        company: "Descript",
-        visits: "120M",
-        change: 15.3,
-        launch: "5 Jan 2017",
-        rating: 8.9,
-        year: 2017,
-        capabilities: ["Audio", "Video", "Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 37,
-        name: "Voicemod",
-        company: "Voicemod",
-        visits: "100M",
-        change: 13.7,
-        launch: "12 Nov 2014",
-        rating: 8.6,
-        year: 2014,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 38,
-        name: "Resemble AI",
-        company: "Resemble AI",
-        visits: "80M",
-        change: 17.5,
-        launch: "15 Mar 2019",
-        rating: 8.7,
-        year: 2019,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 39,
-        name: "Cleanvoice AI",
-        company: "Cleanvoice",
-        visits: "70M",
-        change: 12.8,
-        launch: "8 Sep 2021",
-        rating: 8.4,
-        year: 2021,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 40,
-        name: "VocalRemover",
-        company: "VocalRemover",
-        visits: "65M",
-        change: 9.4,
-        launch: "20 Jul 2020",
-        rating: 8.3,
-        year: 2020,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 41,
-        name: "Zapier",
-        company: "Zapier",
-        visits: "180M",
-        change: 14.7,
-        launch: "8 Aug 2011",
-        rating: 9.2,
-        year: 2011,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 42,
-        name: "ClickUp",
-        company: "ClickUp",
-        visits: "150M",
-        change: 20.5,
-        launch: "15 Jan 2017",
-        rating: 8.9,
-        year: 2017,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 43,
-        name: "Asana",
-        company: "Asana",
-        visits: "210M",
-        change: 8.3,
-        launch: "28 Apr 2008",
-        rating: 9.0,
-        year: 2008,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 44,
-        name: "Reclaim",
-        company: "Reclaim.ai",
-        visits: "85M",
-        change: 25.6,
-        launch: "9 Nov 2019",
-        rating: 8.8,
-        year: 2019,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 45,
-        name: "Clockwise",
-        company: "Clockwise",
-        visits: "90M",
-        change: 19.4,
-        launch: "11 May 2018",
-        rating: 8.7,
-        year: 2018,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 46,
-        name: "Motion",
-        company: "Motion",
-        visits: "75M",
-        change: 22.8,
-        launch: "3 Feb 2020",
-        rating: 8.6,
-        year: 2020,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 47,
-        name: "HubSpot Email Writer",
-        company: "HubSpot",
-        visits: "130M",
-        change: 15.9,
-        launch: "15 Jul 2022",
-        rating: 8.8,
-        year: 2022,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 48,
-        name: "Fathom",
-        company: "Fathom",
-        visits: "95M",
-        change: 28.4,
-        launch: "7 Sep 2022",
-        rating: 8.9,
-        year: 2022,
-        capabilities: ["Texto", "Audio", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 49,
-        name: "Fireflies.ai",
-        company: "Fireflies.ai",
-        visits: "110M",
-        change: 24.6,
-        launch: "12 Mar 2019",
-        rating: 9.0,
-        year: 2019,
-        capabilities: ["Audio", "Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 50,
-        name: "Nyota",
-        company: "Nyota AI",
-        visits: "70M",
-        change: 18.7,
-        launch: "5 Oct 2022",
-        rating: 8.5,
-        year: 2022,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 51,
-        name: "Cursor",
-        company: "Cursor",
-        visits: "140M",
-        change: 35.8,
-        launch: "18 Feb 2023",
-        rating: 9.1,
-        year: 2023,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 52,
-        name: "Bubble",
-        company: "Bubble",
-        visits: "170M",
-        change: 16.2,
-        launch: "15 Aug 2012",
-        rating: 9.0,
-        year: 2012,
-        capabilities: ["Código", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 53,
-        name: "Bolt",
-        company: "Bolt",
-        visits: "85M",
-        change: 28.1,
-        launch: "20 Jun 2022",
-        rating: 8.7,
-        year: 2022,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 54,
-        name: "Lovable",
-        company: "Lovable",
-        visits: "60M",
-        change: 20.5,
-        launch: "7 Jan 2023",
-        rating: 8.4,
-        year: 2023,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 55,
-        name: "v0.dev",
-        company: "Vercel",
-        visits: "125M",
-        change: 42.3,
-        launch: "25 Sep 2023",
-        rating: 9.2,
-        year: 2023,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 56,
-        name: "GitHub Copilot",
-        company: "GitHub/Microsoft",
-        visits: "320M",
-        change: 8.9,
-        launch: "29 Jun 2022",
-        rating: 9.3,
-        year: 2022,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 57,
-        name: "Amazon CodeWhisperer",
-        company: "Amazon",
-        visits: "160M",
-        change: 12.7,
-        launch: "15 Apr 2023",
-        rating: 8.8,
-        year: 2023,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 58,
-        name: "Replit Ghostwriter",
-        company: "Replit",
-        visits: "140M",
-        change: 18.4,
-        launch: "22 Mar 2023",
-        rating: 8.9,
-        year: 2023,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 59,
-        name: "Tabnine",
-        company: "Tabnine",
-        visits: "95M",
-        change: 10.8,
-        launch: "5 May 2018",
-        rating: 8.6,
-        year: 2018,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 60,
-        name: "Kite",
-        company: "Kite",
-        visits: "45M",
-        change: -3.2,
-        launch: "10 Apr 2015",
-        rating: 7.8,
-        year: 2015,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 61,
-        name: "Canva",
-        company: "Canva",
-        visits: "220M",
-        change: 18.5,
-        launch: "21 Jan 2013",
-        rating: 9.4,
-        year: 2013,
-        capabilities: ["Imagen", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 62,
-        name: "Copy.ai",
-        company: "Copy.ai",
-        visits: "130M",
-        change: 14.7,
-        launch: "18 Sep 2020",
-        rating: 8.7,
-        year: 2020,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 63,
-        name: "Jasper",
-        company: "Jasper",
-        visits: "170M",
-        change: 9.5,
-        launch: "12 Feb 2021",
-        rating: 8.9,
-        year: 2021,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 64,
-        name: "Writesonic",
-        company: "Writesonic",
-        visits: "110M",
-        change: 13.8,
-        launch: "5 Aug 2020",
-        rating: 8.6,
-        year: 2020,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 65,
-        name: "Liner",
-        company: "Liner",
-        visits: "75M",
-        change: 8.4,
-        launch: "20 Jun 2018",
-        rating: 8.3,
-        year: 2018,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 66,
-        name: "Eightify",
-        company: "Eightify",
-        visits: "65M",
-        change: 16.7,
-        launch: "15 Jan 2023",
-        rating: 8.5,
-        year: 2023,
-        capabilities: ["Video", "Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 67,
-        name: "Phind",
-        company: "Phind",
-        visits: "90M",
-        change: 27.3,
-        launch: "2 Mar 2023",
-        rating: 8.8,
-        year: 2023,
-        capabilities: ["Texto", "Razonamiento"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 68,
-        name: "MaxAI",
-        company: "MaxAI",
-        visits: "60M",
-        change: 19.5,
-        launch: "8 Sep 2022",
-        rating: 8.4,
-        year: 2022,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 69,
-        name: "Blackbox AI",
-        company: "Blackbox",
-        visits: "85M",
-        change: 23.6,
-        launch: "12 Nov 2022",
-        rating: 8.7,
-        year: 2022,
-        capabilities: ["Código"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 70,
-        name: "Otter.ai",
-        company: "Otter.ai",
-        visits: "140M",
-        change: 16.8,
-        launch: "15 Feb 2018",
-        rating: 9.0,
-        year: 2018,
-        capabilities: ["Audio", "Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 71,
-        name: "ChatPDF",
-        company: "ChatPDF",
-        visits: "110M",
-        change: 32.5,
-        launch: "3 Apr 2023",
-        rating: 8.9,
-        year: 2023,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 72,
-        name: "Cutout.pro",
-        company: "Cutout.pro",
-        visits: "85M",
-        change: 14.3,
-        launch: "21 Jul 2020",
-        rating: 8.6,
-        year: 2020,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 73,
-        name: "Craiyon",
-        company: "Craiyon",
-        visits: "70M",
-        change: 10.7,
-        launch: "10 May 2022",
-        rating: 8.4,
-        year: 2022,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 74,
-        name: "Hotpot.ai",
-        company: "Hotpot.ai",
-        visits: "65M",
-        change: 12.5,
-        launch: "8 Aug 2021",
-        rating: 8.3,
-        year: 2021,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 75,
-        name: "Leonardo.ai",
-        company: "Leonardo.ai",
-        visits: "130M",
-        change: 28.6,
-        launch: "5 Dec 2022",
-        rating: 9.1,
-        year: 2022,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 76,
-        name: "DeepAI",
-        company: "DeepAI",
-        visits: "90M",
-        change: 15.2,
-        launch: "18 Mar 2018",
-        rating: 8.7,
-        year: 2018,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 77,
-        name: "Tome.app",
-        company: "Tome",
-        visits: "120M",
-        change: 30.4,
-        launch: "20 Oct 2022",
-        rating: 9.0,
-        year: 2022,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 78,
-        name: "Stablediffusionweb.com",
-        company: "Stability AI",
-        visits: "180M",
-        change: 8.3,
-        launch: "22 Aug 2022",
-        rating: 9.2,
-        year: 2022,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 79,
-        name: "Gamma",
-        company: "Gamma",
-        visits: "95M",
-        change: 25.7,
-        launch: "15 Nov 2022",
-        rating: 8.8,
-        year: 2022,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 80,
-        name: "Presentations.ai",
-        company: "Presentations.ai",
-        visits: "75M",
-        change: 16.9,
-        launch: "8 Jan 2023",
-        rating: 8.5,
-        year: 2023,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 81,
-        name: "Teal",
-        company: "Teal",
-        visits: "60M",
-        change: 14.2,
-        launch: "2 Apr 2020",
-        rating: 8.4,
-        year: 2020,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 82,
-        name: "Kickresume",
-        company: "Kickresume",
-        visits: "55M",
-        change: 9.6,
-        launch: "15 May 2015",
-        rating: 8.2,
-        year: 2015,
-        capabilities: ["Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 83,
-        name: "AdCreative",
-        company: "AdCreative.ai",
-        visits: "85M",
-        change: 18.3,
-        launch: "10 Jul 2021",
-        rating: 8.7,
-        year: 2021,
-        capabilities: ["Imagen", "Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 84,
-        name: "Clay",
-        company: "Clay",
-        visits: "70M",
-        change: 15.7,
-        launch: "5 Sep 2020",
-        rating: 8.5,
-        year: 2020,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 85,
-        name: "Hiver",
-        company: "Hiver",
-        visits: "65M",
-        change: 11.4,
-        launch: "12 Aug 2011",
-        rating: 8.4,
-        year: 2011,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 86,
-        name: "Tidio AI",
-        company: "Tidio",
-        visits: "80M",
-        change: 19.8,
-        launch: "18 Jun 2018",
-        rating: 8.6,
-        year: 2018,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 87,
-        name: "CVViZ",
-        company: "CVViZ",
-        visits: "50M",
-        change: 12.6,
-        launch: "3 Mar 2019",
-        rating: 8.1,
-        year: 2019,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 88,
-        name: "Guru",
-        company: "Guru",
-        visits: "75M",
-        change: 8.9,
-        launch: "25 Sep 2015",
-        rating: 8.5,
-        year: 2015,
-        capabilities: ["Texto", "Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 89,
-        name: "Sembly",
-        company: "Sembly AI",
-        visits: "55M",
-        change: 15.3,
-        launch: "8 Aug 2021",
-        rating: 8.3,
-        year: 2021,
-        capabilities: ["Audio", "Texto"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 90,
-        name: "Clara",
-        company: "Clara Labs",
-        visits: "45M",
-        change: 7.8,
-        launch: "12 May 2014",
-        rating: 8.0,
-        year: 2014,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 91,
-        name: "Rephrase.ai",
-        company: "Rephrase.ai",
-        visits: "70M",
-        change: 21.5,
-        launch: "7 Nov 2019",
-        rating: 8.6,
-        year: 2019,
-        capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 92,
-        name: "Pictory",
-        company: "Pictory",
-        visits: "85M",
-        change: 18.7,
-        launch: "15 Jan 2021",
-        rating: 8.7,
-        year: 2021,
-        capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 93,
-        name: "Lovo",
-        company: "Lovo AI",
-        visits: "60M",
-        change: 12.4,
-        launch: "10 Mar 2020",
-        rating: 8.3,
-        year: 2020,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 94,
-        name: "WellSaid",
-        company: "WellSaid Labs",
-        visits: "55M",
-        change: 9.6,
-        launch: "5 Feb 2019",
-        rating: 8.2,
-        year: 2019,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 95,
-        name: "Boomy",
-        company: "Boomy Corporation",
-        visits: "50M",
-        change: 14.8,
-        launch: "22 Apr 2021",
-        rating: 8.1,
-        year: 2021,
-        capabilities: ["Audio"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 96,
-        name: "Stockimg.ai",
-        company: "Stockimg.ai",
-        visits: "65M",
-        change: 15.2,
-        launch: "18 Jul 2022",
-        rating: 8.4,
-        year: 2022,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 97,
-        name: "ColorMind",
-        company: "ColorMind",
-        visits: "40M",
-        change: 5.7,
-        launch: "3 Jan 2017",
-        rating: 7.9,
-        year: 2017,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 98,
-        name: "PhotoRoom",
-        company: "PhotoRoom",
-        visits: "90M",
-        change: 24.6,
-        launch: "15 Jun 2020",
-        rating: 8.8,
-        year: 2020,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 99,
-        name: "FaceApp",
-        company: "FaceApp Inc.",
-        visits: "120M",
-        change: 6.5,
-        launch: "15 Jan 2017",
-        rating: 8.5,
-        year: 2017,
-        capabilities: ["Imagen"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 100,
-        name: "Sora",
-        company: "OpenAI",
-        visits: "180M",
-        change: 45.7,
-        launch: "15 Feb 2024",
-        rating: 9.5,
-        year: 2024,
-        capabilities: ["Video"],
-        logo: "https://via.placeholder.com/40"
-      },
-      {
-        id: 101,
-        name: "n8n",
-        company: "n8n",
-        visits: "45M",
-        change: 22.3,
-        launch: "12 Mar 2019",
-        rating: 8.4,
-        year: 2019,
-        capabilities: ["Automatización"],
-        logo: "https://via.placeholder.com/40"
-      }
+      // A partir de aquí añadir el resto de IAs según sea necesario
     ];
+    
+    // Función para inicializar colores y marcar clases para los badges
+    function getCapabilityClass(capability) {
+      const name = capability.toLowerCase();
+      switch (name) {
+        case 'texto': return 'texto';
+        case 'imagen': return 'imagen';
+        case 'audio': return 'audio';
+        case 'video': return 'video';
+        case 'código': return 'codigo';
+        case 'razonamiento': return 'razonamiento';
+        case 'automatización': return 'automatizacion';
+        default: return '';
+      }
+    }
     
     // Script principal sin dependencias de localStorage
     document.addEventListener('DOMContentLoaded', function() {
       // Variables para estado temporal
-      let isDarkMode = false;
+      let isDarkMode = true; // Por defecto en modo oscuro
       let showFavorites = false;
       let currentCategory = 'todas';
       let currentPage = 1;
@@ -2392,18 +1364,18 @@
         }
       }
       
-      // Funciones para manipular el modo oscuro
+      // Funciones para manipular el modo oscuro/claro
       function enableDarkMode() {
         isDarkMode = true;
-        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
         if (darkModeToggle) {
           darkModeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
         }
       }
       
-      function disableDarkMode() {
+      function enableLightMode() {
         isDarkMode = false;
-        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
         if (darkModeToggle) {
           darkModeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
         }
@@ -2454,9 +1426,15 @@
           if (buttonCategory === category) {
             // Para la categoría seleccionada
             button.classList.add('active');
+            if (buttonCategory !== 'todas') {
+              button.classList.add(buttonCategory);
+            }
           } else {
             // Para otras categorías
             button.classList.remove('active');
+            if (buttonCategory !== 'todas') {
+              button.classList.remove(buttonCategory);
+            }
           }
         });
       }
@@ -2611,6 +1589,11 @@
             // Calcular el número real en la lista
             const aiRank = indexOfFirstItem + index + 1;
             
+            // Generar badges de capacidades con clases específicas
+            const capabilityBadges = ai.capabilities.map(cap => 
+              `<span class="badge ${getCapabilityClass(cap)}">${cap}</span>`
+            ).join('');
+            
             row.innerHTML = `
               <td>
                 <div class="rank">${aiRank}</div>
@@ -2620,7 +1603,7 @@
                   <div class="favorite-star ${isFavorite ? 'active' : ''}" data-id="${ai.id}">
                     ${starIcon}
                   </div>
-                  <img src="${ai.logo}" alt="${ai.name}" class="ai-logo">
+                  <div class="ai-logo">${ai.logo}</div>
                   <div class="ai-details">
                     <div class="ai-name">${ai.name}</div>
                     <div class="ai-company">${ai.company}</div>
@@ -2649,7 +1632,7 @@
               </td>
               <td>
                 <div class="badge-container">
-                  ${ai.capabilities.map(cap => `<span class="badge">${cap}</span>`).join('')}
+                  ${capabilityBadges}
                 </div>
               </td>
             `;
@@ -2752,14 +1735,12 @@
           isDarkMode = storedDarkMode;
           if (isDarkMode) {
             enableDarkMode();
+          } else {
+            enableLightMode();
           }
         } else {
-          // Detectar preferencia del sistema
-          const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (prefersDarkMode) {
-            isDarkMode = true;
-            enableDarkMode();
-          }
+          // Usar tema oscuro por defecto
+          enableDarkMode();
         }
       } catch (e) {
         console.log('Error al cargar configuración:', e.message);
@@ -2780,14 +1761,13 @@
         });
       }
       
-      // Botón modo oscuro
+      // Botón modo oscuro/claro
       if (darkModeToggle) {
         darkModeToggle.addEventListener('click', function() {
-          isDarkMode = !isDarkMode;
           if (isDarkMode) {
-            enableDarkMode();
+            enableLightMode();
           } else {
-            disableDarkMode();
+            enableDarkMode();
           }
           
           safeStorage('aiMarketCapDarkMode', isDarkMode);
