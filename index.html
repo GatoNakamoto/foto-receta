@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+/* Notificación móvil */
+    @media (max-width: 640px) {
+      .notification {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        max-width: none;
+        width: calc(100% - 2rem);
+        padding: 0.75rem 1rem;
+      }
+    }<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -1065,6 +1075,23 @@
       height: 1rem;
     }
     
+    .empty-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Focus styles para accesibilidad */
+    button:focus, 
+    a:focus,
+    input:focus,
+    .favorite-star:focus,
+    .badge-more:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    
     /* Versión móvil de los botones de filtro */
     @media (max-width: 640px) {
       .filters {
@@ -1089,28 +1116,36 @@
       }
     }
     
-    /* Estilo de desplazamiento suave */
-    * {
-      scroll-behavior: smooth;
-      scroll-margin-top: 5rem;
-    }
-    
-    /* Notificación móvil */
-    @media (max-width: 640px) {
-      .notification {
-        left: 1rem;
-        right: 1rem;
-        bottom: 1rem;
-        max-width: none;
-        width: calc(100% - 2rem);
-        padding: 0.75rem 1rem;
-      }
-    }
-    
     .empty-icon {
       font-size: 3rem;
       color: var(--text-muted);
       margin-bottom: 1rem;
+    }
+    
+    /* Secciones sin resultados */
+    .empty-state {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    @media (max-width: 640px) {
+      .empty-state {
+        padding: 2rem 1rem;
+      }
+      
+      .empty-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .empty-title {
+        font-size: 1.125rem;
+      }
+      
+      .empty-description {
+        font-size: 0.875rem;
+      }
     }
     
     .empty-description {
@@ -1137,8 +1172,57 @@
           <button id="dark-mode-toggle" class="button" title="Cambiar tema">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
           </button>
+          
+          <!-- Botón de menú hamburguesa para móvil -->
+          <button id="mobile-menu-toggle" class="button mobile-only" title="Menú">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
         </div>
       </div>
+    </div>
+    
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-container">
+        <div class="mobile-menu-header">
+          <h3 class="mobile-menu-title">Menú</h3>
+          <button id="mobile-menu-close" class="mobile-menu-close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="#" class="mobile-menu-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Inicio
+          </a>
+          <a href="#" class="mobile-menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+            Tendencias
+          </a>
+          <a href="#" class="mobile-menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+            Explorar
+          </a>
+          <a href="#" class="mobile-menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Favoritos
+          </a>
+          <div class="mobile-menu-separator"></div>
+          <a href="#" class="mobile-menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            Acerca de
+          </a>
+          <a href="#" class="mobile-menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.84.99 6.57 2.57"></path><path d="M21 3v9h-9"></path></svg>
+            Actualizar datos
+          </a>
+          <a href="#" class="mobile-menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            Configuración
+          </a>
+        </nav>
+      </div>
+      <div id="mobile-menu-backdrop" class="mobile-menu-backdrop"></div>
     </div>
   </header>
   
@@ -3078,6 +3162,62 @@
           setActiveCategory(category);
           currentPage = 1;
           updateTable();
+        });
+      });
+      
+      // Menú móvil
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuClose = document.getElementById('mobile-menu-close');
+      const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+      
+      function openMobileMenu() {
+        mobileMenu.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Prevenir scroll
+      }
+      
+      function closeMobileMenu() {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = ''; // Restaurar scroll
+      }
+      
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', openMobileMenu);
+      }
+      
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+      }
+      
+      if (mobileMenuBackdrop) {
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+      }
+      
+      // Opciones del menú móvil
+      const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+      mobileMenuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          // Aquí puedes manejar la navegación específica basada en qué ítem se clickeó
+          
+          // Por ahora, solo haremos acciones básicas para algunas opciones
+          if (this.textContent.trim() === 'Favoritos') {
+            e.preventDefault();
+            showFavorites = true;
+            updateFavoritesButton();
+            currentPage = 1;
+            updateTable();
+            closeMobileMenu();
+          } else if (this.textContent.trim() === 'Inicio') {
+            e.preventDefault();
+            showFavorites = false;
+            currentCategory = 'todas';
+            setActiveCategory('todas');
+            currentPage = 1;
+            updateTable();
+            closeMobileMenu();
+          }
+          
+          // Para los ítems que quieras que funcionen como links normales, no hagas preventDefault()
         });
       });
     });
