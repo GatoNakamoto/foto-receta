@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIMarketCap - Plataforma de Ranking de IAs</title>
+  
+  <!-- Estilos inline para evitar dependencias externas -->
+  <style>
+    /* Estilos base */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f4f6;
+      color: #1f2937;
+      min-height: 100vh;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Contenedor */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    
+    /* Barra de navegación */
+    .header {
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 16px 0;
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    
+    .nav-items {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      color: #6b7280;
+      transition: background-color 0.2s;
+    }
+    
+    .button:hover {
+      background-color: #f3f4f6;
+    }
+    
+    .button svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    /* Barra de estadísticas */
+    .stats-bar {
+      background-color: #111827;
+      color: #ffffff;
+      padding: 12px 0;
+    }
+    
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+    
+    .stats-left, .stats-right {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .up {
+      color: #34d399;
+    }
+    
+    .up:before {
+      content: "↑";
+      display: inline-block;
+      margin-right: 4px;
+    }
+    
+    .down {
+      color: #f87171;
+    }
+    
+    .down:before {
+      content: "↓";
+      display: inline-block;
+      margin-right: 4px;
+    }
+    
+    /* Área principal */
+    .main {
+      padding: 24px 0;
+    }
+    
+    /* Filtros de categoría */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    
+    .filter-button {
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    
+    .filter-button.active {
+      background-color: #3b82f6;
+      color: #ffffff;
+    }
+    
+    .filter-button:not(.active) {
+      background-color: #ffffff;
+      color: #4b5563;
+    }
+    
+    .filter-button:not(.active):hover {
+      background-color: #f9fafb;
+    }
+    
+    /* Tabla */
+    .card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    
+    .table-container {
+      overflow-x: auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    thead {
+      background-color: #f9fafb;
+    }
+    
+    th {
+      text-align: left;
+      padding: 12px 24px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    td {
+      padding: 16px 24px;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    tr:hover {
+      background-color: #f9fafb;
+    }
+    
+    /* Elementos de la tabla */
+    .ai-info {
+      display: flex;
+      align-items: center;
+    }
+    
+    .ai-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+    
+    .ai-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #111827;
+    }
+    
+    .ai-company {
+      font-size: 12px;
+      color: #6b7280;
+    }
+    
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    
+    .badge {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 9999px;
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+    
+    /* Paginación */
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .page-info {
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    .page-buttons {
+      display: flex;
+    }
+    
+    .page-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 8px;
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #6b7280;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+    
+    .page-button:first-child {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+    
+    .page-button:last-child {
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+    
+    .page-button.active {
+      background-color: #ebf5ff;
+      color: #3b82f6;
+      border-color: #93c5fd;
+      z-index: 1;
+    }
+    
+    .page-button:not(:first-child) {
+      margin-left: -1px;
+    }
+    
+    .page-button:hover:not(.active) {
+      background-color: #f9fafb;
+    }
+    
+    /* Modo oscuro */
+    body.dark-mode {
+      background-color: #111827;
+      color: #f9fafb;
+    }
+    
+    body.dark-mode .header {
+      background-color: #1f2937;
+    }
+    
+    body.dark-mode .button:hover {
+      background-color: #374151;
+    }
+    
+    body.dark-mode .stats-bar {
+      background-color: #111827;
+      border-top: 1px solid #374151;
+      border-bottom: 1px solid #374151;
+    }
+    
+    body.dark-mode .filter-button.active {
+      background-color: #3b82f6;
+      color: #ffffff;
+    }
+    
+    body.dark-mode .filter-button:not(.active) {
+      background-color: #1f2937;
+      color: #d1d5db;
+    }
+    
+    body.dark-mode .filter-button:not(.active):hover {
+      background-color: #374151;
+    }
+    
+    body.dark-mode .card {
+      background-color: #1f2937;
+    }
+    
+    body.dark-mode thead {
+      background-color: #111827;
+    }
+    
+    body.dark-mode th {
+      color: #9ca3af;
+    }
+    
+    body.dark-mode td {
+      border-top: 1px solid #374151;
+    }
+    
+    body.dark-mode tr:hover {
+      background-color: #273146;
+    }
+    
+    body.dark-mode .ai-name {
+      color: #f9fafb;
+    }
+    
+    body.dark-mode .ai-company {
+      color: #9ca3af;
+    }
+    
+    body.dark-mode .badge {
+      background-color: #1e40af;
+      color: #93c5fd;
+    }
+    
+    body.dark-mode .page-info {
+      color: #9ca3af;
+    }
+    
+    body.dark-mode .page-button {
+      background-color: #1f2937;
+      border-color: #374151;
+      color: #d1d5db;
+    }
+    
+    body.dark-mode .page-button.active {
+      background-color: #1e3a8a;
+      color: #93c5fd;
+      border-color: #1e40af;
+    }
+    
+    body.dark-mode .page-button:hover:not(.active) {
+      background-color: #374151;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stats-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      
+      .hide-mobile {
+        display: none;
+      }
+      
+      th, td {
+        padding: 12px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <a href="#" class="logo">AIMarketCap</a>
+        
+        <div class="nav-items">
+          <button id="dark-mode-toggle" class="button" title="Cambiar tema">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+          </button>
+          
+          <button id="favorites-toggle" class="button" title="Favoritos">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-container">
+        <div class="stats-left">
+          <span>IAs: 100</span>
+          <span>Categorías: 7</span>
+        </div>
+        <div class="stats-right">
+          <span class="up">DeepSeek (+2026%)</span>
+          <span class="down">Kite (-3.2%)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <main class="main">
+    <div class="container">
+      <div class="filters">
+        <button class="filter-button active" data-category="todas">Todas</button>
+        <button class="filter-button" data-category="texto">Texto</button>
+        <button class="filter-button" data-category="imagen">Imagen</button>
+        <button class="filter-button" data-category="audio">Audio</button>
+        <button class="filter-button" data-category="video">Video</button>
+        <button class="filter-button" data-category="codigo">Código</button>
+        <button class="filter-button" data-category="razonamiento">Razonamiento</button>
+        <button class="filter-button" data-category="automatizacion">Automatización</button>
+      </div>
+      
+      <div class="card">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>IA</th>
+                <th>Visitas</th>
+                <th>Cambio</th>
+                <th class="hide-mobile">Lanzamiento</th>
+                <th>Valoración</th>
+                <th>Capacidades</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="ChatGPT" class="ai-logo">
+                    <div>
+                      <div class="ai-name">ChatGPT</div>
+                      <div class="ai-company">OpenAI</div>
+                    </div>
+                  </div>
+                </td>
+                <td>982.5M</td>
+                <td class="up">12.4%</td>
+                <td class="hide-mobile">30 Nov 2022</td>
+                <td>9.8</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Texto</span>
+                    <span class="badge">Código</span>
+                    <span class="badge">Razonamiento</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>2</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="Gemini" class="ai-logo">
+                    <div>
+                      <div class="ai-name">Gemini</div>
+                      <div class="ai-company">Google</div>
+                    </div>
+                  </div>
+                </td>
+                <td>750M</td>
+                <td class="up">18.7%</td>
+                <td class="hide-mobile">6 Dec 2023</td>
+                <td>9.6</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Texto</span>
+                    <span class="badge">Código</span>
+                    <span class="badge">Imagen</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>3</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="Claude" class="ai-logo">
+                    <div>
+                      <div class="ai-name">Claude</div>
+                      <div class="ai-company">Anthropic</div>
+                    </div>
+                  </div>
+                </td>
+                <td>620M</td>
+                <td class="up">25.3%</td>
+                <td class="hide-mobile">15 Mar 2023</td>
+                <td>9.7</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Texto</span>
+                    <span class="badge">Código</span>
+                    <span class="badge">Razonamiento</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>4</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="Perplexity AI" class="ai-logo">
+                    <div>
+                      <div class="ai-name">Perplexity AI</div>
+                      <div class="ai-company">Perplexity</div>
+                    </div>
+                  </div>
+                </td>
+                <td>450M</td>
+                <td class="up">32.1%</td>
+                <td class="hide-mobile">20 Aug 2023</td>
+                <td>9.2</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Texto</span>
+                    <span class="badge">Razonamiento</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>5</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="Microsoft Copilot" class="ai-logo">
+                    <div>
+                      <div class="ai-name">Microsoft Copilot</div>
+                      <div class="ai-company">Microsoft</div>
+                    </div>
+                  </div>
+                </td>
+                <td>430M</td>
+                <td class="up">15.8%</td>
+                <td class="hide-mobile">21 Sep 2023</td>
+                <td>9.0</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Texto</span>
+                    <span class="badge">Imagen</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>6</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="Midjourney" class="ai-logo">
+                    <div>
+                      <div class="ai-name">Midjourney</div>
+                      <div class="ai-company">Midjourney, Inc.</div>
+                    </div>
+                  </div>
+                </td>
+                <td>410M</td>
+                <td class="down">2.1%</td>
+                <td class="hide-mobile">12 Jul 2022</td>
+                <td>9.5</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Imagen</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>7</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="DALL-E 3" class="ai-logo">
+                    <div>
+                      <div class="ai-name">DALL-E 3</div>
+                      <div class="ai-company">OpenAI</div>
+                    </div>
+                  </div>
+                </td>
+                <td>380M</td>
+                <td class="up">5.6%</td>
+                <td class="hide-mobile">28 Sep 2023</td>
+                <td>9.4</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Imagen</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>8</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="GitHub Copilot" class="ai-logo">
+                    <div>
+                      <div class="ai-name">GitHub Copilot</div>
+                      <div class="ai-company">GitHub/Microsoft</div>
+                    </div>
+                  </div>
+                </td>
+                <td>320M</td>
+                <td class="up">8.9%</td>
+                <td class="hide-mobile">29 Jun 2022</td>
+                <td>9.3</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Código</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>9</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="Meta AI (LLaMA)" class="ai-logo">
+                    <div>
+                      <div class="ai-name">Meta AI (LLaMA)</div>
+                      <div class="ai-company">Meta</div>
+                    </div>
+                  </div>
+                </td>
+                <td>310M</td>
+                <td class="down">1.4%</td>
+                <td class="hide-mobile">24 Feb 2023</td>
+                <td>8.9</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Texto</span>
+                    <span class="badge">Código</span>
+                    <span class="badge">Razonamiento</span>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>10</td>
+                <td>
+                  <div class="ai-info">
+                    <img src="https://via.placeholder.com/40" alt="ElevenLabs" class="ai-logo">
+                    <div>
+                      <div class="ai-name">ElevenLabs</div>
+                      <div class="ai-company">ElevenLabs, Inc.</div>
+                    </div>
+                  </div>
+                </td>
+                <td>290M</td>
+                <td class="up">22.8%</td>
+                <td class="hide-mobile">1 Mar 2023</td>
+                <td>9.1</td>
+                <td>
+                  <div class="badge-container">
+                    <span class="badge">Audio</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="pagination">
+        <div class="page-info">
+          Mostrando <strong>1</strong> a <strong>10</strong> de <strong>100</strong> IAs
+        </div>
+        
+        <div class="page-buttons">
+          <button class="page-button" disabled>←</button>
+          <button class="page-button active">1</button>
+          <button class="page-button">2</button>
+          <button class="page-button">3</button>
+          <button class="page-button">4</button>
+          <button class="page-button">5</button>
+          <button class="page-button">→</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    // Script sin dependencias de localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      // Variables para estado temporal (sin persistencia)
+      let isDarkMode = false;
+      let showFavorites = false;
+      let currentCategory = 'todas';
+      let currentPage = 1;
+      let favorites = [];
+      
+      // Intentar usar el sistema preferido del usuario
+      try {
+        // Detectar preferencia de tema del sistema
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkMode) {
+          enableDarkMode();
+        }
+      } catch (e) {
+        console.log('No se pudo detectar la preferencia de tema del sistema');
+      }
+      
+      // Botón modo oscuro
+      const darkModeToggle = document.getElementById('dark-mode-toggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function() {
+          isDarkMode = !isDarkMode;
+          if (isDarkMode) {
+            enableDarkMode();
+          } else {
+            disableDarkMode();
+          }
+        });
+      }
+      
+      // Botón favoritos
+      const favoritesToggle = document.getElementById('favorites-toggle');
+      if (favoritesToggle) {
+        favoritesToggle.addEventListener('click', function() {
+          showFavorites = !showFavorites;
+          updateFavoritesButton();
+          // Aquí iría la lógica para filtrar la tabla por favoritos
+        });
+      }
+      
+      // Botones de categoría
+      const categoryButtons = document.querySelectorAll('.filter-button');
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
+          setActiveCategory(category);
+          // Aquí iría la lógica para filtrar la tabla por categoría
+        });
+      });
+      
+      // Botones de paginación
+      const pageButtons = document.querySelectorAll('.page-button');
+      pageButtons.forEach(button => {
+        if (button.textContent !== '←' && button.textContent !== '→') {
+          button.addEventListener('click', function() {
+            const page = parseInt(this.textContent);
+            if (!isNaN(page)) {
+              setActivePage(page);
+              // Aquí iría la lógica para cambiar de página
+            }
+          });
+        }
+      });
+      
+      // Funciones auxiliares
+      function enableDarkMode() {
+        isDarkMode = true;
+        document.body.classList.add('dark-mode');
+        // Cambiar icono de luna a sol
+        if (darkModeToggle) {
+          darkModeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+        }
+      }
+      
+      function disableDarkMode() {
+        isDarkMode = false;
+        document.body.classList.remove('dark-mode');
+        // Cambiar icono de sol a luna
+        if (darkModeToggle) {
+          darkModeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
+        }
+      }
+      
+      function updateFavoritesButton() {
+        if (favoritesToggle) {
+          if (showFavorites) {
+            favoritesToggle.style.color = '#f59e0b';
+            favoritesToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#f59e0b" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+          } else {
+            favoritesToggle.style.color = '';
+            favoritesToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+          }
+        }
+      }
+      
+      function setActiveCategory(category) {
+        currentCategory = category;
+        categoryButtons.forEach(button => {
+          const buttonCategory = button.getAttribute('data-category');
+          if (buttonCategory === category) {
+            button.classList.add('active');
+            button.classList.remove('filter-button');
+          } else {
+            button.classList.remove('active');
+            if (!button.classList.contains('filter-button')) {
+              button.classList.add('filter-button');
+            }
+          }
+        });
+      }
+      
+      function setActivePage(page) {
+        currentPage = page;
+        pageButtons.forEach(button => {
+          if (button.textContent !== '←' && button.textContent !== '→') {
+            const buttonPage = parseInt(button.textContent);
+            if (!isNaN(buttonPage) && buttonPage === page) {
+              button.classList.add('active');
+            } else {
+              button.classList.remove('active');
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
