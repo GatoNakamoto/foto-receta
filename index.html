@@ -421,27 +421,31 @@
     }
     
     /* Columnas específicas */
-    th:nth-child(1), td:nth-child(1) { /* Ranking */
+    th:nth-child(1), td:nth-child(1) { /* Fav */
       width: 60px;
     }
     
-    th:nth-child(2), td:nth-child(2) { /* IA */
+    th:nth-child(2), td:nth-child(2) { /* Ranking */
+      width: 60px;
+    }
+    
+    th:nth-child(3), td:nth-child(3) { /* IA */
       width: 260px;
     }
     
-    th:nth-child(3), td:nth-child(3) { /* Página */
+    th:nth-child(4), td:nth-child(4) { /* Página */
       width: 100px;
     }
     
-    th:nth-child(4), td:nth-child(4) { /* Visitas */
+    th:nth-child(5), td:nth-child(5) { /* Visitas */
       width: 100px;
     }
     
-    th:nth-child(5), td:nth-child(5) { /* Año */
+    th:nth-child(6), td:nth-child(6) { /* Año */
       width: 80px;
     }
     
-    th:nth-child(6), td:nth-child(6) { /* Valoración */
+    th:nth-child(7), td:nth-child(7) { /* Valoración */
       width: 120px;
     }
     
@@ -857,7 +861,7 @@
     }
     
     @media (max-width: 640px) {
-      th:nth-child(6), td:nth-child(6) { /* Valoración */
+      th:nth-child(7), td:nth-child(7) { /* Valoración */
         width: 80px;
       }
       
@@ -1019,6 +1023,7 @@
           <table>
             <thead>
               <tr>
+                <th>Fav</th>
                 <th>#</th>
                 <th>IA</th>
                 <th>Página</th>
@@ -2577,7 +2582,7 @@
         if (currentIAs.length === 0) {
           const emptyRow = document.createElement('tr');
           emptyRow.innerHTML = `
-            <td colspan="7">
+            <td colspan="8">
               <div class="empty-state">
                 <div class="empty-icon">
                   ${showFavorites ? '⭐' : '🔍'}
@@ -2622,13 +2627,15 @@
             
             row.innerHTML = `
               <td>
+                <div class="favorite-star ${isFavorite ? 'active' : ''}" data-id="${ai.id}">
+                  ${starIcon}
+                </div>
+              </td>
+              <td>
                 <div class="rank">${aiRank}</div>
               </td>
               <td>
                 <div class="ai-info">
-                  <div class="favorite-star ${isFavorite ? 'active' : ''}" data-id="${ai.id}">
-                    ${starIcon}
-                  </div>
                   <img src="${ai.logo}" alt="${ai.name}" class="ai-logo">
                   <div class="ai-details">
                     <div class="ai-name">${ai.name}</div>
