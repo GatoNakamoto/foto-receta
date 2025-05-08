@@ -414,6 +414,7 @@
     tr {
       position: relative;
       transition: var(--transition);
+      height: 4.5rem; /* Altura fija para todas las filas */
     }
     
     tr:hover {
@@ -697,6 +698,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.375rem;
+      min-height: 1.875rem; /* Altura mínima para la consistencia */
     }
     
     .badge {
@@ -709,9 +711,33 @@
       transition: var(--transition);
     }
     
+    .badge-more {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-tertiary);
+      color: var(--text-tertiary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .badge-more:hover {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    
     tr:hover .badge {
       transform: translateY(-1px);
       box-shadow: var(--shadow-sm);
+    }
+    
+    .capabilities-expanded .badge-hidden {
+      display: inline-flex;
+    }
+    
+    .badge-hidden {
+      display: none;
     }
     
     /* Paginación */
@@ -2625,6 +2651,25 @@
               </svg>
             </a>`;
             
+            // Crear HTML para las capacidades con límite
+            let capabilitiesHTML = '';
+            const maxVisibleCapabilities = 3;
+            
+            if (ai.capabilities.length <= maxVisibleCapabilities) {
+              // Si hay 3 o menos capacidades, mostrarlas todas
+              capabilitiesHTML = ai.capabilities.map(cap => `<span class="badge">${cap}</span>`).join('');
+            } else {
+              // Si hay más de 3 capacidades, mostrar 3 y agregar un "+X más"
+              const visibleCapabilities = ai.capabilities.slice(0, maxVisibleCapabilities);
+              const hiddenCapabilities = ai.capabilities.slice(maxVisibleCapabilities);
+              
+              const visibleHTML = visibleCapabilities.map(cap => `<span class="badge">${cap}</span>`).join('');
+              const hiddenHTML = hiddenCapabilities.map(cap => `<span class="badge badge-hidden">${cap}</span>`).join('');
+              const moreButton = `<span class="badge-more" data-ai-id="${ai.id}">+${hiddenCapabilities.length} más</span>`;
+              
+              capabilitiesHTML = visibleHTML + hiddenHTML + moreButton;
+            }
+            
             row.innerHTML = `
               <td>
                 <div class="favorite-star ${isFavorite ? 'active' : ''}" data-id="${ai.id}">
@@ -2661,8 +2706,8 @@
                 </div>
               </td>
               <td>
-                <div class="badge-container">
-                  ${ai.capabilities.map(cap => `<span class="badge">${cap}</span>`).join('')}
+                <div class="badge-container" data-ai-id="${ai.id}">
+                  ${capabilitiesHTML}
                 </div>
               </td>
             `;
@@ -2677,6 +2722,25 @@
               e.stopPropagation(); // Evitar que el clic se propague a la fila
               const aiId = parseInt(this.getAttribute('data-id'));
               toggleFavorite(aiId);
+            });
+          });
+          
+          // Añadir eventos a los botones "+X más"
+          const moreButtons = document.querySelectorAll('.badge-more');
+          moreButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+              e.stopPropagation(); // Evitar que el clic se propague a la fila
+              const aiId = this.getAttribute('data-ai-id');
+              const container = document.querySelector(`.badge-container[data-ai-id="${aiId}"]`);
+              container.classList.toggle('capabilities-expanded');
+              
+              // Cambiar el texto del botón
+              if (container.classList.contains('capabilities-expanded')) {
+                this.textContent = 'Mostrar menos';
+              } else {
+                const hiddenBadges = container.querySelectorAll('.badge-hidden').length;
+                this.textContent = `+${hiddenBadges} más`;
+              }
             });
           });
         }
