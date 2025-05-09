@@ -1232,7 +1232,7 @@
   </main>
   
   <script>
-    // Datos de las IAs completos con logos reales
+    // Datos de las IAs completos con logos locales
     const allIAs = [
       {
         id: 1,
@@ -1244,7 +1244,7 @@
         rating: 9.8,
         year: 2022,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://www.api.place/40x40/openai",
+        logo: "imagenes/chatgpt.png", // Imagen real de ChatGPT desde la carpeta local
         website: "https://chat.openai.com"
       },
       {
@@ -1257,7 +1257,7 @@
         rating: 9.7,
         year: 2023,
         capabilities: ["Texto", "Razonamiento", "Código"],
-        logo: "https://www.api.place/40x40/claude",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://claude.ai"
       },
       {
@@ -1270,7 +1270,7 @@
         rating: 9.6,
         year: 2023,
         capabilities: ["Texto", "Imagen", "Audio", "Video", "Código", "Razonamiento"],
-        logo: "https://www.api.place/40x40/google",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://gemini.google.com"
       },
       {
@@ -1283,7 +1283,7 @@
         rating: 9.2,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://www.api.place/40x40/perplexity",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://perplexity.ai"
       },
       {
@@ -1296,7 +1296,7 @@
         rating: 9.0,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://www.api.place/40x40/poe",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://poe.com"
       },
       {
@@ -1309,7 +1309,7 @@
         rating: 8.9,
         year: 2022,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://www.api.place/40x40/characterai",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://character.ai"
       },
       {
@@ -1322,7 +1322,7 @@
         rating: 9.0,
         year: 2023,
         capabilities: ["Texto", "Código", "Automatización"],
-        logo: "https://www.api.place/40x40/microsoft",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://copilot.microsoft.com"
       },
       {
@@ -1335,7 +1335,7 @@
         rating: 8.9,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://www.api.place/40x40/meta",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://meta.ai"
       },
       {
@@ -1348,7 +1348,7 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://www.api.place/40x40/amazon",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://amazon.com/olympus"
       },
       {
@@ -1361,7 +1361,7 @@
         rating: 8.7,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://www.api.place/40x40/yandex",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://yandex.ru/gpt"
       },
       {
@@ -1374,7 +1374,7 @@
         rating: 9.0,
         year: 2019,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/grammarly",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://grammarly.com"
       },
       {
@@ -1387,7 +1387,7 @@
         rating: 8.5,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/quillbot",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://quillbot.com"
       },
       {
@@ -1400,7 +1400,7 @@
         rating: 9.2,
         year: 2017,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/deepl",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://deepl.com"
       },
       {
@@ -1413,7 +1413,7 @@
         rating: 8.4,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/wordtune",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://wordtune.com"
       },
       {
@@ -1426,7 +1426,7 @@
         rating: 8.6,
         year: 2021,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/sudowrite",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://sudowrite.com"
       },
       {
@@ -1439,7 +1439,7 @@
         rating: 8.3,
         year: 2021,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/rytr",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://rytr.me"
       },
       {
@@ -1452,7 +1452,7 @@
         rating: 8.6,
         year: 2014,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/textio",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://textio.com"
       },
       {
@@ -1465,7 +1465,7 @@
         rating: 9.1,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/notion",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://notion.so/ai"
       },
       {
@@ -1478,7 +1478,7 @@
         rating: 8.2,
         year: 2015,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/sanebox",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://sanebox.com"
       },
       {
@@ -1491,7 +1491,7 @@
         rating: 8.4,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/shortwave",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://shortwave.com"
       },
       {
@@ -1504,7 +1504,7 @@
         rating: 9.5,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/midjourney",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://midjourney.com"
       },
       {
@@ -1517,7 +1517,7 @@
         rating: 9.4,
         year: 2023,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/dalle",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://openai.com/dall-e-3"
       },
       {
@@ -1530,7 +1530,7 @@
         rating: 9.0,
         year: 2018,
         capabilities: ["Imagen", "Video"],
-        logo: "https://www.api.place/40x40/runway",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://runwayml.com"
       },
       {
@@ -1543,7 +1543,7 @@
         rating: 8.8,
         year: 2021,
         capabilities: ["Video", "Audio", "Texto"],
-        logo: "https://www.api.place/40x40/synthesia",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://synthesia.io"
       },
       {
@@ -1556,7 +1556,7 @@
         rating: 9.2,
         year: 2024,
         capabilities: ["Video"],
-        logo: "https://www.api.place/40x40/lumiere",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://lumiere.google.com"
       },
       {
@@ -1569,7 +1569,7 @@
         rating: 8.7,
         year: 2023,
         capabilities: ["Video"],
-        logo: "https://www.api.place/40x40/opusclip",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://opusclip.ai"
       },
       {
@@ -1582,7 +1582,7 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Video"],
-        logo: "https://www.api.place/40x40/filmora",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://filmora.wondershare.com/ai"
       },
       {
@@ -1595,7 +1595,7 @@
         rating: 8.6,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/upscayl",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://upscayl.org"
       },
       {
@@ -1608,7 +1608,7 @@
         rating: 8.3,
         year: 2015,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/deepdream",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://deepdreamgenerator.com"
       },
       {
@@ -1621,7 +1621,7 @@
         rating: 8.4,
         year: 2018,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/artbreeder",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://artbreeder.com"
       },
       {
@@ -1634,7 +1634,7 @@
         rating: 9.1,
         year: 2023,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/elevenlabs",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://elevenlabs.io"
       },
       {
@@ -1647,7 +1647,7 @@
         rating: 8.7,
         year: 2021,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/murf",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://murf.ai"
       },
       {
@@ -1660,7 +1660,7 @@
         rating: 9.0,
         year: 2023,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/suno",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://suno.ai"
       },
       {
@@ -1673,7 +1673,7 @@
         rating: 8.5,
         year: 2022,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/udio",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://udio.ai"
       },
       {
@@ -1686,7 +1686,7 @@
         rating: 8.8,
         year: 2017,
         capabilities: ["Audio", "Texto"],
-        logo: "https://www.api.place/40x40/assemblyai",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://assemblyai.com"
       },
       {
@@ -1699,7 +1699,7 @@
         rating: 8.9,
         year: 2017,
         capabilities: ["Audio", "Video", "Texto"],
-        logo: "https://www.api.place/40x40/descript",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://descript.com"
       },
       {
@@ -1712,7 +1712,7 @@
         rating: 8.6,
         year: 2014,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/voicemod",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://voicemod.net"
       },
       {
@@ -1725,7 +1725,7 @@
         rating: 8.7,
         year: 2019,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/resemble",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://resemble.ai"
       },
       {
@@ -1738,7 +1738,7 @@
         rating: 8.4,
         year: 2021,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/cleanvoice",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://cleanvoice.ai"
       },
       {
@@ -1751,7 +1751,7 @@
         rating: 8.3,
         year: 2020,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/vocalremover",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://vocalremover.org"
       },
       {
@@ -1764,7 +1764,7 @@
         rating: 9.2,
         year: 2011,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/zapier",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://zapier.com"
       },
       {
@@ -1777,7 +1777,7 @@
         rating: 8.9,
         year: 2017,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/clickup",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://clickup.com"
       },
       {
@@ -1790,7 +1790,7 @@
         rating: 9.0,
         year: 2008,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/asana",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://asana.com"
       },
       {
@@ -1803,7 +1803,7 @@
         rating: 8.8,
         year: 2019,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/reclaim",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://reclaim.ai"
       },
       {
@@ -1816,7 +1816,7 @@
         rating: 8.7,
         year: 2018,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/clockwise",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://clockwise.ai"
       },
       {
@@ -1829,7 +1829,7 @@
         rating: 8.6,
         year: 2020,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/motion",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://usemotion.com"
       },
       {
@@ -1842,7 +1842,7 @@
         rating: 8.8,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/hubspot",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://hubspot.com/email-writer"
       },
       {
@@ -1855,7 +1855,7 @@
         rating: 8.9,
         year: 2022,
         capabilities: ["Texto", "Audio", "Automatización"],
-        logo: "https://www.api.place/40x40/fathom",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://fathom.video"
       },
       {
@@ -1868,7 +1868,7 @@
         rating: 9.0,
         year: 2019,
         capabilities: ["Audio", "Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/fireflies",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://fireflies.ai"
       },
       {
@@ -1881,7 +1881,7 @@
         rating: 8.5,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/nyota",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://nyota.ai"
       },
       {
@@ -1894,7 +1894,7 @@
         rating: 9.1,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/cursor",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://cursor.sh"
       },
       {
@@ -1907,7 +1907,7 @@
         rating: 9.0,
         year: 2012,
         capabilities: ["Código", "Automatización"],
-        logo: "https://www.api.place/40x40/bubble",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://bubble.io"
       },
       {
@@ -1920,7 +1920,7 @@
         rating: 8.7,
         year: 2022,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/bolt",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://bolt.ai"
       },
       {
@@ -1933,7 +1933,7 @@
         rating: 8.4,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/lovable",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://lovable.ai"
       },
       {
@@ -1946,7 +1946,7 @@
         rating: 9.2,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/v0dev",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://v0.dev"
       },
       {
@@ -1959,7 +1959,7 @@
         rating: 9.3,
         year: 2022,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/github",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://github.com/features/copilot"
       },
       {
@@ -1972,7 +1972,7 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/codewhisperer",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://aws.amazon.com/codewhisperer"
       },
       {
@@ -1985,7 +1985,7 @@
         rating: 8.9,
         year: 2023,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/replit",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://replit.com/ghostwriter"
       },
       {
@@ -1998,7 +1998,7 @@
         rating: 8.6,
         year: 2018,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/tabnine",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://tabnine.com"
       },
       {
@@ -2011,7 +2011,7 @@
         rating: 7.8,
         year: 2015,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/kite",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://kite.com"
       },
       {
@@ -2024,7 +2024,7 @@
         rating: 9.4,
         year: 2013,
         capabilities: ["Imagen", "Automatización"],
-        logo: "https://www.api.place/40x40/canva",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://canva.com"
       },
       {
@@ -2037,7 +2037,7 @@
         rating: 8.7,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/copyai",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://copy.ai"
       },
       {
@@ -2050,7 +2050,7 @@
         rating: 8.9,
         year: 2021,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/jasper",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://jasper.ai"
       },
       {
@@ -2063,7 +2063,7 @@
         rating: 8.6,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/writesonic",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://writesonic.com"
       },
       {
@@ -2076,7 +2076,7 @@
         rating: 8.3,
         year: 2018,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/liner",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://getliner.com"
       },
       {
@@ -2089,7 +2089,7 @@
         rating: 8.5,
         year: 2023,
         capabilities: ["Video", "Texto"],
-        logo: "https://www.api.place/40x40/eightify",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://eightify.app"
       },
       {
@@ -2102,7 +2102,7 @@
         rating: 8.8,
         year: 2023,
         capabilities: ["Texto", "Razonamiento"],
-        logo: "https://www.api.place/40x40/phind",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://phind.com"
       },
       {
@@ -2115,7 +2115,7 @@
         rating: 8.4,
         year: 2022,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/maxai",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://maxai.me"
       },
       {
@@ -2128,7 +2128,7 @@
         rating: 8.7,
         year: 2022,
         capabilities: ["Código"],
-        logo: "https://www.api.place/40x40/blackbox",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://blackbox.ai"
       },
       {
@@ -2141,7 +2141,7 @@
         rating: 9.0,
         year: 2018,
         capabilities: ["Audio", "Texto"],
-        logo: "https://www.api.place/40x40/otter",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://otter.ai"
       },
       {
@@ -2154,7 +2154,7 @@
         rating: 8.9,
         year: 2023,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/chatpdf",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://chatpdf.com"
       },
       {
@@ -2167,7 +2167,7 @@
         rating: 8.6,
         year: 2020,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/cutout",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://cutout.pro"
       },
       {
@@ -2180,7 +2180,7 @@
         rating: 8.4,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/craiyon",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://craiyon.com"
       },
       {
@@ -2193,7 +2193,7 @@
         rating: 8.3,
         year: 2021,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/hotpot",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://hotpot.ai"
       },
       {
@@ -2206,7 +2206,7 @@
         rating: 9.1,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/leonardo",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://leonardo.ai"
       },
       {
@@ -2219,7 +2219,7 @@
         rating: 8.7,
         year: 2018,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/deepai",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://deepai.org"
       },
       {
@@ -2232,7 +2232,7 @@
         rating: 9.0,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/tome",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://tome.app"
       },
       {
@@ -2245,7 +2245,7 @@
         rating: 9.2,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/stablediffusion",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://stablediffusionweb.com"
       },
       {
@@ -2258,7 +2258,7 @@
         rating: 8.8,
         year: 2022,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/gamma",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://gamma.app"
       },
       {
@@ -2271,7 +2271,7 @@
         rating: 8.5,
         year: 2023,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/presentationsai",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://presentations.ai"
       },
       {
@@ -2284,7 +2284,7 @@
         rating: 8.4,
         year: 2020,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/teal",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://tealhq.com"
       },
       {
@@ -2297,7 +2297,7 @@
         rating: 8.2,
         year: 2015,
         capabilities: ["Texto"],
-        logo: "https://www.api.place/40x40/kickresume",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://kickresume.com"
       },
       {
@@ -2310,7 +2310,7 @@
         rating: 8.7,
         year: 2021,
         capabilities: ["Imagen", "Texto"],
-        logo: "https://www.api.place/40x40/adcreative",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://adcreative.ai"
       },
       {
@@ -2323,7 +2323,7 @@
         rating: 8.5,
         year: 2020,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/clay",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://clay.com"
       },
       {
@@ -2336,7 +2336,7 @@
         rating: 8.4,
         year: 2011,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/hiver",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://hiverhq.com"
       },
       {
@@ -2349,7 +2349,7 @@
         rating: 8.6,
         year: 2018,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/tidio",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://tidio.com/ai"
       },
       {
@@ -2362,7 +2362,7 @@
         rating: 8.1,
         year: 2019,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/cvviz",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://cvviz.com"
       },
       {
@@ -2375,7 +2375,7 @@
         rating: 8.5,
         year: 2015,
         capabilities: ["Texto", "Automatización"],
-        logo: "https://www.api.place/40x40/guru",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://getguru.com"
       },
       {
@@ -2388,7 +2388,7 @@
         rating: 8.3,
         year: 2021,
         capabilities: ["Audio", "Texto"],
-        logo: "https://www.api.place/40x40/sembly",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://sembly.ai"
       },
       {
@@ -2401,7 +2401,7 @@
         rating: 8.0,
         year: 2014,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/clara",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://claralabs.com"
       },
       {
@@ -2414,7 +2414,7 @@
         rating: 8.6,
         year: 2019,
         capabilities: ["Video"],
-        logo: "https://www.api.place/40x40/rephrase",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://rephrase.ai"
       },
       {
@@ -2427,7 +2427,7 @@
         rating: 8.7,
         year: 2021,
         capabilities: ["Video"],
-        logo: "https://www.api.place/40x40/pictory",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://pictory.ai"
       },
       {
@@ -2440,7 +2440,7 @@
         rating: 8.3,
         year: 2020,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/lovo",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://lovo.ai"
       },
       {
@@ -2453,7 +2453,7 @@
         rating: 8.2,
         year: 2019,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/wellsaid",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://wellsaidlabs.com"
       },
       {
@@ -2466,7 +2466,7 @@
         rating: 8.1,
         year: 2021,
         capabilities: ["Audio"],
-        logo: "https://www.api.place/40x40/boomy",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://boomy.com"
       },
       {
@@ -2479,7 +2479,7 @@
         rating: 8.4,
         year: 2022,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/stockimg",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://stockimg.ai"
       },
       {
@@ -2492,7 +2492,7 @@
         rating: 7.9,
         year: 2017,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/colormind",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "http://colormind.io"
       },
       {
@@ -2505,7 +2505,7 @@
         rating: 8.8,
         year: 2020,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/photoroom",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://photoroom.com"
       },
       {
@@ -2518,7 +2518,7 @@
         rating: 8.5,
         year: 2017,
         capabilities: ["Imagen"],
-        logo: "https://www.api.place/40x40/faceapp",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://faceapp.com"
       },
       {
@@ -2531,7 +2531,7 @@
         rating: 9.5,
         year: 2024,
         capabilities: ["Video"],
-        logo: "https://www.api.place/40x40/sora",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://openai.com/sora"
       },
       {
@@ -2544,10 +2544,18 @@
         rating: 8.4,
         year: 2019,
         capabilities: ["Automatización"],
-        logo: "https://www.api.place/40x40/n8n",
+        logo: "imagenes/default.png", // Imagen por defecto (no disponible)
         website: "https://n8n.io"
       }
     ];
+
+    // Función para verificar si una imagen existe
+    function imageExists(url) {
+      // Esta función no puede verificar realmente si la imagen existe 
+      // en el cliente por limitaciones de CORS y seguridad.
+      // Por lo tanto, usaremos un enfoque de manejo de errores en la carga de la imagen.
+      return true;
+    }
     
     // Script principal sin dependencias de localStorage
     document.addEventListener('DOMContentLoaded', function() {
@@ -2744,6 +2752,13 @@
         }
       }
       
+      // Función para manejar errores de carga de imágenes
+      function handleImageError(img) {
+        // Si la imagen falla al cargar, usar una imagen de respaldo genérica
+        img.onerror = null; // Evitar bucles infinitos
+        img.src = 'imagenes/default.png'; // Imagen por defecto (asegúrate de crear este archivo también)
+      }
+      
       // Actualizar la tabla con los datos filtrados
       function updateTable() {
         const filteredIAs = getFilteredIAs();
@@ -2864,7 +2879,7 @@
                 </td>
                 <td>
                   <div class="ai-info">
-                    <img src="${ai.logo}" alt="${ai.name}" class="ai-logo">
+                    <img src="${ai.logo}" alt="${ai.name}" class="ai-logo" onerror="this.onerror=null; this.src='imagenes/default.png';">
                     <div class="ai-details">
                       <div class="ai-name">${ai.name}</div>
                       <div class="ai-company">${ai.company}</div>
@@ -3082,6 +3097,3 @@
         });
       });
     });
-  </script>
-</body>
-</html>
